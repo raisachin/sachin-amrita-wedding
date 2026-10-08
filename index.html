@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090504">
+<meta name="description" content="Sachin & Amrita — a Kashi beginning. Varanasi, 1–3 December 2026.">
+<meta property="og:title" content="Sachin & Amrita — A Kashi Beginning">
+<meta property="og:description" content="A wedding invitation from Varanasi · 1–3 December 2026">
+<title>Sachin & Amrita · A Kashi Beginning</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@400;500;600&display=swap');
+:root{
+ --ink:#080403;--ink2:#160907;--ink3:#24110e;--paper:#f4ede2;--cream:#fff9ef;
+ --gold:#c8a25e;--gold2:#efd49a;--muted:#bcae9c;--red:#6e2026;--red2:#a24f48;
+ --line:rgba(239,212,154,.24);--darkline:rgba(73,42,30,.18)
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.055;z-index:99;background-image:radial-gradient(#fff .55px,transparent .55px);background-size:5px 5px}
+a{color:inherit;text-decoration:none} button,input,select{font:inherit}
+button{cursor:pointer}
+.loader{position:fixed;inset:0;background:#070403;z-index:200;display:grid;place-items:center;transition:opacity .9s,visibility .9s}
+.loader.hide{opacity:0;visibility:hidden}
+.loader-inner{text-align:center}
+.loader-kashi{font-family:"Noto Serif Devanagari",serif;color:var(--gold2);font-size:26px;letter-spacing:.15em}
+.loader-line{width:90px;height:1px;background:var(--gold);margin:18px auto;animation:pulse 1.7s infinite}
+.loader-copy{font-size:9px;letter-spacing:.3em;color:#a99b89;text-transform:uppercase}
+@keyframes pulse{50%{opacity:.25;transform:scaleX(.5)}}
+.hero{min-height:100svh;position:relative;display:grid;place-items:end center;overflow:hidden;background:#060403}
+.hero-media{position:absolute;inset:0;background:#060403}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 34%;filter:saturate(.86) contrast(1.06) brightness(.58);transform:scale(1.03);animation:heroZoom 18s ease-out forwards}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero-media:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 12%,rgba(255,198,100,.16),transparent 30%),linear-gradient(180deg,rgba(0,0,0,.06),rgba(5,2,2,.28) 43%,rgba(6,2,2,.96))}
+.hero-content{position:relative;z-index:2;width:min(1000px,92vw);text-align:center;padding:55px 18px 64px}
+.kicker{letter-spacing:.38em;text-transform:uppercase;color:var(--gold2);font-size:10px}
+.monogram{font-family:"Cormorant Garamond",serif;color:var(--gold2);font-size:27px;letter-spacing:.16em;margin:24px 0}
+.names{font-family:"Cormorant Garamond",serif;font-weight:400;letter-spacing:-.045em}
+.hero h1{font-size:clamp(70px,15vw,155px);line-height:.68;margin:0}
+.hero h1 em{font-size:.58em;font-style:normal;font-weight:300;color:var(--gold2);padding:0 .05em}
+.hero-date{font-family:"Cormorant Garamond",serif;font-size:22px;letter-spacing:.2em;margin-top:38px}
+.hero-sub{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#e0d0bd;margin-top:12px}
+.scroll{display:inline-flex;align-items:center;gap:10px;margin-top:38px;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2)}
+.scroll i{width:34px;height:1px;background:var(--gold);display:block}
+.section{padding:110px 6vw;position:relative}.container{max-width:1180px;margin:auto}
+.eyebrow{color:var(--gold);font-size:9px;letter-spacing:.3em;text-transform:uppercase}
+.display{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(48px,7vw,88px);line-height:.9;margin:13px 0 25px}
+.lead{max-width:690px;color:#d4c7b6;line-height:1.9;font-size:15px}
+.intro{background:linear-gradient(180deg,var(--ink),var(--ink2))}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center}
+.photo-card{position:relative}.photo-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.9)}
+.photo-card:before{content:"";position:absolute;inset:13px;border:1px solid rgba(239,212,154,.5);z-index:1;pointer-events:none}
+.deva{font-family:"Noto Serif Devanagari",serif;color:var(--gold2);font-size:20px;line-height:2;margin-top:25px}
+.quote{font-family:"Cormorant Garamond",serif;font-size:30px;line-height:1.25;color:#f2e5d3}
+.chapter{background:#0e0605;border-top:1px solid rgba(239,212,154,.08);overflow:hidden}
+.chapter-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:7vw;align-items:center}
+.chapter-number{font-family:"Cormorant Garamond",serif;font-size:160px;color:rgba(239,212,154,.08);line-height:.7}
+.chapter h2{margin-top:0}
+.chapter .copy{max-width:650px;color:#cfc0ae;line-height:1.9}
+.events{background:var(--paper);color:#281714}
+.events .eyebrow{color:#8b5d2b}.events .display{color:#321817}
+.timeline{border-top:1px solid var(--darkline);margin-top:55px}
+.event{display:grid;grid-template-columns:130px 1fr auto;gap:30px;padding:34px 0;border-bottom:1px solid var(--darkline);align-items:center}
+.event-date{font-family:"Cormorant Garamond",serif;font-size:25px;color:#8b5d2b}
+.event h3{font-family:"Cormorant Garamond",serif;font-size:36px;font-weight:500;margin:0 0 5px}
+.event p{margin:0;color:#6e5a50;font-size:13px;line-height:1.7}
+.event-tag{font-size:8px;letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(80,45,30,.3);padding:9px 12px}
+.note{font-size:11px;color:#80685c;margin-top:25px}
+.family{background:linear-gradient(145deg,#160807,#2b1210 52%,#0b0504);text-align:center}
+.family-intro{max-width:720px;margin:auto}.family-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:55px auto 0;max-width:900px}
+.family-card{padding:30px 20px;border:1px solid var(--line);background:rgba(255,255,255,.025)}
+.family-card h3{font-family:"Cormorant Garamond",serif;font-size:31px;font-weight:500;color:var(--gold2);margin:0 0 9px}
+.family-card p{margin:0;color:#cdbfad;font-size:12px;line-height:1.9}
+.family-card.wide{grid-column:span 2}
+.memory{font-family:"Cormorant Garamond",serif;font-size:25px;color:#ead9c0;margin-top:10px}
+.memory small{display:block;font-family:Inter,sans-serif;color:#a99a87;font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-top:10px}
+.gallery{background:#080504}.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:55px}
+.gallery-grid figure{margin:0;overflow:hidden;background:#150b09;min-height:220px}
+.gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .6s}
+.gallery-grid figure:hover img{transform:scale(1.04);filter:saturate(1.05)}
+.g1{grid-column:span 5;grid-row:span 2}.g2{grid-column:span 4}.g3{grid-column:span 3}.g4{grid-column:span 4}.g5{grid-column:span 3}.g6{grid-column:span 5}.g7{grid-column:span 4}.g8{grid-column:span 8}
+.film{background:var(--ink2)}
+.film-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px}
+.video-card{position:relative;border:1px solid var(--line);background:#0b0504;overflow:hidden}
+.video-card video{width:100%;display:block;aspect-ratio:9/16;object-fit:cover}
+.video-label{padding:15px 16px;color:var(--gold2);font-family:"Cormorant Garamond",serif;font-size:25px}
+.video-label small{display:block;font-family:Inter,sans-serif;color:#a99b89;font-size:8px;letter-spacing:.18em;text-transform:uppercase;margin-top:5px}
+.venue{background:radial-gradient(circle at 80% 18%,#3b1814 0,#180a08 38%,#080403 76%);text-align:center}
+.venue-box{margin:45px auto 0;max-width:850px;padding:52px 25px;border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.venue-name{font-family:"Cormorant Garamond",serif;font-size:50px;color:var(--gold2)}
+.venue-address{color:#d4c5b4;line-height:1.8;margin:8px 0 26px;font-size:13px}
+.btn{display:inline-block;border:1px solid var(--gold);padding:13px 19px;color:var(--gold2);font-size:9px;letter-spacing:.17em;text-transform:uppercase;margin:4px;transition:.3s}
+.btn:hover{background:var(--gold);color:#160b08}
+.countdown{background:#110706;text-align:center}.count{display:flex;justify-content:center;gap:clamp(15px,5vw,58px);margin:52px 0}
+.unit strong{font-family:"Cormorant Garamond",serif;font-weight:400;color:var(--gold2);font-size:clamp(45px,7vw,78px);display:block;line-height:1}
+.unit span{display:block;color:#a99b89;font-size:8px;letter-spacing:.25em;text-transform:uppercase;margin-top:10px}
+.rsvp{background:var(--paper);color:#241512;text-align:center}.rsvp .eyebrow{color:#8b5d2b}.rsvp .display{color:#321817}
+.rsvp-card{max-width:700px;margin:36px auto 0;background:#fffaf1;padding:36px;border:1px solid var(--darkline)}
+.rsvp-card input,.rsvp-card select{width:100%;padding:14px;margin:5px 0;border:1px solid rgba(80,45,30,.22);background:white;color:#241512}
+.rsvp-card button{border:0;background:var(--red);color:white;padding:14px 23px;margin-top:10px;letter-spacing:.15em;text-transform:uppercase;font-size:9px}
+.form-msg{font-size:11px;color:#795f54;min-height:18px;margin-top:13px}
+.footer{padding:90px 20px;text-align:center;background:#060302}
+.footer .names{font-family:"Cormorant Garamond",serif;font-size:60px;color:var(--gold2)}
+.footer p{color:#76695d;font-size:9px;letter-spacing:.18em}
+.music{position:fixed;right:17px;bottom:17px;z-index:100;border:1px solid var(--line);background:rgba(9,4,3,.78);backdrop-filter:blur(12px);color:var(--gold2);border-radius:999px;padding:11px 15px;font-size:9px;letter-spacing:.12em}
+.music.active{background:rgba(110,32,38,.88)}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .9s ease,transform .9s ease}.reveal.on{opacity:1;transform:none}
+@media(max-width:760px){
+ .hero-media img{object-position:57% 31%}.section{padding:82px 6vw}
+ .intro-grid,.chapter-grid{grid-template-columns:1fr}.chapter-number{font-size:90px}
+ .event{grid-template-columns:1fr;gap:9px}.event-tag{width:max-content}
+ .family-grid,.film-grid{grid-template-columns:1fr}.family-card.wide{grid-column:span 1}
+ .gallery-grid{grid-template-columns:1fr 1fr}.gallery-grid figure{grid-column:span 1!important;grid-row:span 1!important;min-height:0;aspect-ratio:1}
+ .gallery-grid .g1{grid-column:span 2!important;aspect-ratio:4/5}.gallery-grid .g8{grid-column:span 2!important;aspect-ratio:16/10}
+ .count{gap:17px}.unit strong{font-size:42px}
+ .venue-name{font-size:42px}
+}
+</style>
+</head>
+<body>
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-kashi">काशी</div>
+    <div class="loader-line"></div>
+    <div class="loader-copy">A beginning written in light</div>
+  </div>
+</div>
+
+<button class="music" id="musicBtn" aria-label="Toggle soundtrack">♫ <span id="musicText">PLAY SOUNDTRACK</span></button>
+<audio id="weddingAudio" src="assets/soundtrack.mp3" preload="metadata" loop></audio>
+
+<header class="hero">
+  <div class="hero-media"><img src="assets/hero.jpg" alt="Sachin and Amrita"></div>
+  <div class="hero-content">
+    <div class="kicker">Varanasi · 01—03 December 2026</div>
+    <div class="monogram">S ✦ A</div>
+    <h1 class="names">Sachin <em>&amp;</em> Amrita</h1>
+    <div class="hero-date">03 · 12 · 2026</div>
+    <div class="hero-sub">Two hearts · One sacred beginning</div>
+    <a class="scroll" href="#story"><i></i> Enter our story <i></i></a>
+  </div>
+</header>
+
+<section class="section intro" id="story">
+ <div class="container intro-grid">
+  <div class="photo-card reveal"><img src="assets/intimate.jpg" alt="Sachin and Amrita"></div>
+  <div class="reveal">
+   <div class="eyebrow">The beginning</div>
+   <h2 class="display">Some stories are written.<br>Ours is meant to be lived.</h2>
+   <p class="lead">With the love, blessings and warmth of our families, we invite you to witness the beginning of our forever — in the timeless city of Varanasi.</p>
+   <p class="deva">शुभ विवाह · प्रेम · परिवार · आशीर्वाद</p>
+   <p class="quote">“May our first steps together begin in Kashi, and may every step thereafter lead us closer to a lifetime together.”</p>
+  </div>
+ </div>
+</section>
+
+<section class="section chapter">
+ <div class="container chapter-grid">
+   <div class="reveal"><div class="eyebrow">Chapter I</div><div class="chapter-number">I</div></div>
+   <div class="reveal">
+     <h2 class="display">Before forever,<br>there was us.</h2>
+     <p class="copy">A glance, a laugh, a thousand little moments — and somehow, a whole future began to take shape. These are not just photographs. They are the frames before the story became a wedding.</p>
+     <a class="btn" href="#gallery">See our moments</a>
+   </div>
+ </div>
+</section>
+
+<section class="section events" id="celebrations">
+ <div class="container">
+  <div class="eyebrow">The celebrations</div>
+  <h2 class="display">Three days.<br>Four unforgettable moments.</h2>
+  <div class="timeline reveal">
+   <article class="event">
+    <div class="event-date">01 DEC</div>
+    <div><h3>Sangeet</h3><p>6:00 PM onwards · Dharma Kunj, Sarainandan, Khojwan, Varanasi</p></div>
+    <div class="event-tag">Music · Dance</div>
+   </article>
+   <article class="event">
+    <div class="event-date">02 DEC</div>
+    <div><h3>Mehendi</h3><p>6:00 PM – 10:00 PM · Dharma Kunj, Sarainandan, Khojwan, Varanasi</p></div>
+    <div class="event-tag">Bride's home</div>
+   </article>
+   <article class="event">
+    <div class="event-date">03 DEC</div>
+    <div><h3>Haldi</h3><p>10:00 AM – 12:00 PM · Hotel Atharv · Varanasi</p></div>
+    <div class="event-tag">Sunshine</div>
+   </article>
+   <article class="event">
+    <div class="event-date">03 DEC</div>
+    <div><h3>Wedding</h3><p>6:00 PM onwards · Hotel Atharv · Varanasi</p></div>
+    <div class="event-tag">The sacred hour</div>
+   </article>
+  </div>
+  <p class="note">The Mehendi and Sangeet are currently listed as separate celebrations. Timings and venue details can be updated later without changing the design.</p>
+ </div>
+</section>
+
+<section class="section family" id="family">
+ <div class="container">
+  <div class="family-intro reveal">
+   <div class="eyebrow">The family of the bride</div>
+   <h2 class="display">With the blessings<br>of the Pandey family.</h2>
+   <p class="lead" style="margin:auto">A celebration becomes sacred when it is shared with the people who shaped us. With love, we honour Amrita's family as they welcome this beautiful new chapter.</p>
+  </div>
+  <div class="family-grid reveal">
+   <div class="family-card"><h3>Manoj Pandey</h3><p>Father of the Bride</p></div>
+   <div class="family-card"><h3>Sarita Pandey</h3><p>Mother of the Bride</p></div>
+   <div class="family-card"><h3>Arpita Pandey</h3><p>Sister</p></div>
+   <div class="family-card"><h3>Shubham Pandey</h3><p>Brother</p></div>
+   <div class="family-card wide"><h3>Shreyanshi Pandey</h3><p>Sister-in-law</p></div>
+   <div class="family-card wide">
+     <div class="memory">In loving memory of Krishnanand Pandey</div>
+     <small>Beloved Grandfather · Baba</small>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section gallery" id="gallery">
+ <div class="container">
+  <div class="eyebrow">Us, before forever</div>
+  <h2 class="display">A few frames<br>from our story.</h2>
+  <div class="gallery-grid reveal">
+   <figure class="g1"><img src="assets/portrait.jpg" alt="Sachin and Amrita"></figure>
+   <figure class="g2"><img src="assets/engagement.jpg" alt="Engagement celebration"></figure>
+   <figure class="g3"><img src="assets/walk.jpg" alt="Sachin and Amrita walking together"></figure>
+   <figure class="g4"><img src="assets/smile.jpg" alt="Sachin and Amrita smiling"></figure>
+   <figure class="g5"><img src="assets/moment.jpg" alt="A candid moment"></figure>
+   <figure class="g6"><img src="assets/traditional.jpg" alt="Sachin and Amrita in traditional attire"></figure>
+   <figure class="g7"><img src="assets/selfie.jpg" alt="A personal couple moment"></figure>
+   <figure class="g8"><img src="assets/hero.jpg" alt="Sachin and Amrita"></figure>
+  </div>
+ </div>
+</section>
+
+<section class="section film" id="film">
+ <div class="container">
+  <div class="eyebrow">Moving memories</div>
+  <h2 class="display">Some moments<br>should move.</h2>
+  <p class="lead">A few frames from the videos you shared — presented quietly, like little pieces of the story waiting to be discovered.</p>
+  <div class="film-grid reveal">
+   <article class="video-card"><video controls playsinline preload="metadata" poster="assets/hero.jpg"><source src="assets/reel-stage.mp4" type="video/mp4"></video><div class="video-label">The celebration<small>Engagement · Varanasi</small></div></article>
+   <article class="video-card"><video controls playsinline preload="metadata" poster="assets/smile.jpg"><source src="assets/reel-walk.mp4" type="video/mp4"></video><div class="video-label">The walk<small>Before forever</small></div></article>
+   <article class="video-card"><video controls playsinline preload="metadata" poster="assets/traditional.jpg"><source src="assets/reel-traditional.mp4" type="video/mp4"></video><div class="video-label">The heritage<small>A little glimpse</small></div></article>
+  </div>
+ </div>
+</section>
+
+<section class="section venue" id="venue">
+ <div class="container">
+  <div class="eyebrow">The sacred day</div>
+  <h2 class="display">Meet us in Kashi.</h2>
+  <div class="venue-box reveal">
+   <div class="venue-name">Hotel Atharv</div>
+   <div class="venue-address">19, National Highway, near SMS College, Chouraha, Bhadawar, Varanasi, Uttar Pradesh 221311<br><strong>03 December 2026 · 6:00 PM onwards</strong></div>
+   <a class="btn" href="https://maps.app.goo.gl/wVZmDw4n3vjG6H8i9" target="_blank" rel="noopener">Open Wedding Map</a>
+   <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Dharma+Kunj+Sarainandan+Khojwan+Varanasi" target="_blank" rel="noopener">Bride's Home Map</a>
+  </div>
+ </div>
+</section>
+
+<section class="section countdown">
+ <div class="container">
+  <div class="eyebrow">Until the sacred day</div>
+  <h2 class="display">The countdown has begun.</h2>
+  <div class="count">
+   <div class="unit"><strong id="days">0</strong><span>Days</span></div>
+   <div class="unit"><strong id="hours">0</strong><span>Hours</span></div>
+   <div class="unit"><strong id="mins">0</strong><span>Minutes</span></div>
+   <div class="unit"><strong id="secs">0</strong><span>Seconds</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="section rsvp" id="rsvp">
+ <div class="container">
+  <div class="eyebrow">Your presence is our gift</div>
+  <h2 class="display">Will you celebrate with us?</h2>
+  <p>Your response helps the Pandey family prepare a beautiful celebration for everyone.
+  <div class="rsvp-card reveal">
+   <input id="guest" placeholder="Your name" autocomplete="name">
+   <select id="attendance"><option value="">Will you attend?</option><option value="Joyfully, yes!">Joyfully, yes!</option><option value="Sorry, I can't make it">Sorry, I can't make it</option></select>
+   <select id="events"><option value="">Which celebration?</option><option value="Sangeet · 01 Dec">Sangeet · 01 Dec</option><option value="Mehendi · 02 Dec">Mehendi · 02 Dec</option><option value="Haldi · 03 Dec">Haldi · 03 Dec</option><option value="Wedding · 03 Dec">Wedding · 03 Dec</option><option value="All celebrations">All celebrations</option></select>
+   <button id="rsvpButton" onclick="submitRSVP()">Send RSVP</button>
+   <div class="form-msg" id="formMsg" aria-live="polite"></div>
+  </div>
+ </div>
+</section>
+
+<footer class="footer">
+ <div class="eyebrow">With love, from the Pandey family</div>
+ <div class="names">Sachin &amp; Amrita</div>
+ <p>VARANASI · 01—03 DECEMBER 2026</p>
+ <p style="margin-top:30px">शुभ विवाह · प्रेम · परिवार · आशीर्वाद</p>
+</footer>
+
+<script>
+window.addEventListener("load",()=>setTimeout(()=>document.getElementById("loader").classList.add("hide"),850));
+const wedding=new Date("2026-12-03T18:00:00+05:30").getTime();
+function tick(){
+ const d=Math.max(0,wedding-Date.now());
+ document.getElementById("days").textContent=Math.floor(d/86400000);
+ document.getElementById("hours").textContent=Math.floor(d/3600000)%24;
+ document.getElementById("mins").textContent=Math.floor(d/60000)%60;
+ document.getElementById("secs").textContent=Math.floor(d/1000)%60;
+}
+tick();setInterval(tick,1000);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("on")}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(x=>io.observe(x));
+document.querySelectorAll("video").forEach(v=>v.addEventListener("play",()=>document.querySelectorAll("video").forEach(o=>{if(o!==v)o.pause()})));
+const RSVP_ENDPOINT="https://script.google.com/macros/s/AKfycbz2wOj2iVQBhEc9aldk9ydq0fNE3IYN893VXl6AbKMEpAku8Wl-dNpEWd4MvWTijgjRPA/exec";
+async function submitRSVP(){
+ const n=document.getElementById("guest").value.trim(),a=document.getElementById("attendance").value,e=document.getElementById("events").value;
+ const msg=document.getElementById("formMsg"),btn=document.getElementById("rsvpButton");
+ if(!n||!a||!e){msg.textContent="Please fill in all three fields.";return;}
+ btn.disabled=true;btn.textContent="SENDING…";msg.textContent="";
+ try{
+  await fetch(RSVP_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=UTF-8"},body:JSON.stringify({name:n,attendance:a,events:e})});
+  msg.textContent=`Thank you, ${n}. Your RSVP has been received. We can't wait to celebrate with you.`;
+  document.getElementById("guest").value="";
+  document.getElementById("attendance").value="";
+  document.getElementById("events").value="";
+ }catch(err){
+  msg.textContent="We couldn't send your RSVP right now. Please try again.";
+ }finally{
+  btn.disabled=false;btn.textContent="SEND RSVP";
+ }
+}
+const weddingAudio=document.getElementById("weddingAudio");
+const musicBtn=document.getElementById("musicBtn");
+const musicText=document.getElementById("musicText");
+weddingAudio.volume=0.72;
+musicBtn.onclick=async()=>{
+ try{
+  if(weddingAudio.paused){
+   await weddingAudio.play();
+   musicBtn.classList.add("active");
+   musicText.textContent="SOUNDTRACK ON";
+  }else{
+   weddingAudio.pause();
+   musicBtn.classList.remove("active");
+   musicText.textContent="PLAY SOUNDTRACK";
+  }
+ }catch(err){
+  musicText.textContent="TAP TO PLAY";
+ }
+};
+
+</script>
+</body>
+</html>
