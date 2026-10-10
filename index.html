@@ -156,6 +156,10 @@ section{position:relative}
 .memory p{margin:0;font-family:var(--serif);font-style:italic;font-size:1.1rem;opacity:.9}
 .memory small{display:block;font-family:var(--sans);font-style:normal;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.65;margin-top:3px}
 
+/* Tighten the transition after the photo gallery: avoid a large dead zone before Moving Memories. */
+.gallery.pad{padding-top:clamp(52px,8vw,100px);padding-bottom:clamp(36px,5vw,72px)}
+.storyline.pad{padding-top:clamp(48px,7vw,96px)}
+
 /* gallery */
 .gallery .head{margin-bottom:clamp(32px,5vw,60px);display:flex;flex-direction:column;gap:16px}
 .masonry{columns:2;column-gap:12px}
