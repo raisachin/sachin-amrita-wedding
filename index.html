@@ -258,6 +258,20 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
 .gallery .memory-note{font-family:var(--serif);font-style:italic;opacity:.7;margin-top:-28px;margin-bottom:30px}
 @media(prefers-reduced-motion:reduce){.year-card{transition:none}}
 
+
+/* Two families, two homes — keep the original Kashi art direction */
+.family .people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 22px}
+.family .person{padding:17px 0;border-bottom:1px solid rgba(246,239,228,.18)}
+.family .person h3{font-size:clamp(1.25rem,2.6vw,1.9rem)}
+.family .person span{font-size:.9rem;opacity:.72}
+.family .memory{margin-top:28px}
+.family .family-kicker{display:inline-flex;align-items:center;gap:9px;color:var(--marigold);font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700}
+.home-celebrations{margin-top:28px;padding:24px;border:1px solid rgba(246,239,228,.2);border-radius:20px;background:rgba(246,239,228,.035)}
+.home-celebrations h3{font-family:var(--serif);font-size:1.65rem;font-weight:350;margin-bottom:8px}
+.home-celebrations p{margin:0 0 12px;max-width:unset}
+.home-celebrations .btn{margin-top:8px}
+@media(max-width:620px){.family .people{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -268,6 +282,7 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
   <div class="links">
     <a href="#our-story">Our story</a>
     <a href="#celebrations">Celebrations</a>
+    <a href="#groom-family">Groom’s family</a>
     <a href="#gallery">Moments</a>
     <a href="#venue">Venue</a>
     <a class="btn btn-fill" href="#rsvp">RSVP</a>
@@ -398,6 +413,46 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
   </div>
 </section>
 
+<!-- FAMILY OF THE GROOM -->
+<section class="family dark pad" id="groom-family">
+  <div class="wrap grid">
+    <div>
+      <div class="family-kicker rv">The family of the groom</div>
+      <h2 class="rv d1">With the blessings of the <em>Rai family.</em></h2>
+      <p class="rv d2">From our home to the ghats of Kashi, this chapter belongs to the people who have stood beside Sachin and helped shape the person he is today. Our celebrations begin at home, and our families meet in Varanasi for the wedding.</p>
+      <div class="home-celebrations rv d3">
+        <h3>Celebrations at home</h3>
+        <p><strong>Rai Family Residence</strong><br>Sangeet · 1 December, 6:00 PM onwards<br>Mehendi · 2 December, 6:00–10:00 PM<br>Haldi · 3 December, 10:00 AM–12:00 PM</p>
+        <a class="btn btn-ghost" href="https://maps.app.goo.gl/9nVSSZPTdAZKoXJr5" target="_blank" rel="noopener">Open groom's home map</a>
+      </div>
+    </div>
+    <div>
+      <div class="people rv">
+        <div class="person"><h3>Kamlesh Rai</h3><span>Father of the Groom</span></div>
+        <div class="person"><h3>Manish Rai</h3><span>Elder Brother</span></div>
+        <div class="person"><h3>Sonal Rai</h3><span>Wife of Manish</span></div>
+        <div class="person"><h3>Saurav Rai</h3><span>Second Elder Brother</span></div>
+        <div class="person"><h3>Shristi Rai</h3><span>Wife of Saurav</span></div>
+        <div class="person"><h3>Vidyotama Devi (Munni)</h3><span>Pyari Bua</span></div>
+        <div class="person"><h3>Sumit Singh</h3><span>Bua's Son</span></div>
+        <div class="person"><h3>Pooja Rai</h3><span>Wife of Sumit</span></div>
+      </div>
+      <div class="memory rv d1">
+        <svg class="diya" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 4c3 5 5 8 0 13-5-5-3-8 0-13z" fill="#f0a020"/>
+          <path d="M5 21h30c0 8-6.5 14-15 14S5 29 5 21z" fill="#e0661c"/>
+        </svg>
+        <p>Our little stars<small>Nephews · in order</small></p>
+        <div class="people" style="margin-top:12px">
+          <div class="person"><h3>Arav Rai</h3><span>Nephew · 1</span></div>
+          <div class="person"><h3>Arush Rai</h3><span>Nephew · 2</span></div>
+          <div class="person"><h3>Atharv Rai</h3><span>Nephew · 3</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- GALLERY -->
 <section class="gallery pad" id="gallery">
   <div class="wrap">
@@ -413,11 +468,6 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
       <button class="rv"><img loading="lazy" src="moment.jpg" alt="A candid moment"></button>
       <button class="rv"><img loading="lazy" src="traditional.jpg" alt="Sachin and Amrita in traditional attire"></button>
       <button class="rv"><img loading="lazy" src="selfie.jpg" alt="A personal moment"></button>
-      <button class="rv"><img loading="lazy" src="2021.jpg" alt="A memory from 2021"></button>
-      <button class="rv"><img loading="lazy" src="2022.jpg" alt="A memory from 2022"></button>
-      <button class="rv"><img loading="lazy" src="2023.jpg" alt="A memory from 2023"></button>
-      <button class="rv"><img loading="lazy" src="2024.jpg" alt="A memory from 2024"></button>
-      <button class="rv"><img loading="lazy" src="2025.jpg" alt="A memory from 2025"></button>
       <button class="rv"><img loading="lazy" src="roka-candid.jpg" alt="A candid Roka memory from 2026"></button>
       <button class="rv"><img loading="lazy" src="roka-portrait.jpg" alt="A portrait from Sachin and Amrita's Roka"></button>
       <button class="rv"><img loading="lazy" src="roka-sunset.jpg" alt="A sunset portrait from 2026"></button>
@@ -451,12 +501,14 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
       <div class="btns rv d3">
         <a class="btn btn-fill" href="https://maps.app.goo.gl/wVZmDw4n3vjG6H8i9" target="_blank" rel="noopener">Open wedding map</a>
         <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Dharma+Kunj+Sarainandan+Khojwan+Varanasi" target="_blank" rel="noopener">Bride's home map</a>
+        <a class="btn btn-ghost" href="https://maps.app.goo.gl/9nVSSZPTdAZKoXJr5" target="_blank" rel="noopener">Groom's home map</a>
       </div>
     </div>
     <div class="card rv d2">
-      <h3>Sangeet & Mehendi</h3>
-      <p>Dharma Kunj, Sarainandan, Khojwan, Varanasi — the bride's home.</p>
-      <a class="btn btn-line" style="border-color:rgba(246,239,228,.35);color:var(--paper)" href="https://www.google.com/maps/search/?api=1&query=Dharma+Kunj+Sarainandan+Khojwan+Varanasi" target="_blank" rel="noopener">Get directions</a>
+      <h3>Two homes, one celebration</h3>
+      <p>Amrita's Sangeet and Mehendi celebrations take place at Dharma Kunj. Sachin's celebrations happen at the <strong>Rai Family Residence</strong> at the same dates and times. The families come together at Hotel Atharv for the wedding on 3 December.</p>
+      <a class="btn btn-line" style="border-color:rgba(246,239,228,.35);color:var(--paper)" href="https://www.google.com/maps/search/?api=1&query=Dharma+Kunj+Sarainandan+Khojwan+Varanasi" target="_blank" rel="noopener">Bride-side directions</a>
+      <a class="btn btn-line" style="border-color:rgba(246,239,228,.35);color:var(--paper)" href="https://maps.app.goo.gl/9nVSSZPTdAZKoXJr5" target="_blank" rel="noopener">Groom-side directions</a>
     </div>
   </div>
 </section>
@@ -481,7 +533,7 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
     <div>
       <div class="eyebrow rv">Your presence is our gift</div>
       <h2 class="rv d1">Will you <em>celebrate with us?</em></h2>
-      <p class="s rv d2">Your response helps the Pandey family prepare a beautiful celebration for everyone.</p>
+      <p class="s rv d2">Your response helps both the Pandey and Rai families prepare a beautiful celebration for everyone.</p>
     </div>
     <div>
       <form id="rsvpForm" class="rv d1">
@@ -528,7 +580,7 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
 
 <footer>
   <div class="names">Sachin <em>&</em> Amrita</div>
-  <small>With love, from the Pandey family</small>
+  <small>With love, from the Pandey & Rai families</small>
   <small>Varanasi · 01—03 December 2026</small>
   <div class="deva">शुभ विवाह · प्रेम · परिवार · आशीर्वाद</div>
 </footer>
@@ -556,13 +608,16 @@ const CONFIG = {
 };
 
 const EVENTS = [
-  {n:"Sangeet", d:"01", m:"Dec", t:"Music · Dance", time:"6:00 PM onwards", venue:"Dharma Kunj", loc:"Sarainandan, Khojwan, Varanasi", cls:"c1",
+  {n:"Sangeet", d:"01", m:"Dec", t:"Music · Dance", time:"6:00 PM onwards", venue:"Dharma Kunj · Bride's side", loc:"Sarainandan, Khojwan, Varanasi", cls:"c1",
+   sideVenue:"Rai Family Residence · Groom's side", sideTime:"6:00 PM onwards", sideMap:"https://maps.app.goo.gl/9nVSSZPTdAZKoXJr5",
    s:"2026-12-01T18:00:00+05:30", e:"2026-12-01T22:30:00+05:30",
    map:"https://www.google.com/maps/search/?api=1&query=Dharma+Kunj+Sarainandan+Khojwan+Varanasi"},
-  {n:"Mehendi", d:"02", m:"Dec", t:"Bride's home", time:"6:00 PM – 10:00 PM", venue:"Dharma Kunj", loc:"Sarainandan, Khojwan, Varanasi", cls:"c2",
+  {n:"Mehendi", d:"02", m:"Dec", t:"Mehendi celebrations", time:"6:00 PM – 10:00 PM", venue:"Dharma Kunj · Bride's side", loc:"Sarainandan, Khojwan, Varanasi", cls:"c2",
+   sideVenue:"Rai Family Residence · Groom's side", sideTime:"6:00 PM – 10:00 PM", sideMap:"https://maps.app.goo.gl/9nVSSZPTdAZKoXJr5",
    s:"2026-12-02T18:00:00+05:30", e:"2026-12-02T22:00:00+05:30",
    map:"https://www.google.com/maps/search/?api=1&query=Dharma+Kunj+Sarainandan+Khojwan+Varanasi"},
-  {n:"Haldi", d:"03", m:"Dec", t:"Sunshine", time:"10:00 AM – 12:00 PM", venue:"Hotel Atharv", loc:"Varanasi", cls:"c3",
+  {n:"Haldi", d:"03", m:"Dec", t:"Sunshine", time:"10:00 AM – 12:00 PM", venue:"Bride's side · Hotel Atharv", loc:"Varanasi", cls:"c3",
+   sideVenue:"Rai Family Residence · Groom's side", sideTime:"10:00 AM – 12:00 PM", sideMap:"https://maps.app.goo.gl/9nVSSZPTdAZKoXJr5",
    s:"2026-12-03T10:00:00+05:30", e:"2026-12-03T12:00:00+05:30",
    map:"https://maps.app.goo.gl/wVZmDw4n3vjG6H8i9"},
   {n:"Wedding", d:"03", m:"Dec", t:"The sacred hour", time:"6:00 PM onwards", venue:"Hotel Atharv", loc:"Varanasi", cls:"c4",
@@ -579,10 +634,12 @@ EVENTS.forEach((ev,i)=>{
     <div class="date"><b>${ev.d}</b><span>${ev.m}</span></div>
     <h3>${ev.n}</h3>
     <div class="tag">${ev.t}</div>
-    <div class="meta"><strong>${ev.time}</strong>${ev.venue}<br>${ev.loc}</div>
+    <div class="meta"><strong>${ev.time}</strong>${ev.venue}<br>${ev.loc}
+      ${ev.sideVenue ? `<div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(54,42,30,.15)"><strong>Same-time celebration</strong>${ev.sideVenue}<br>${ev.sideTime}<br><a href="${ev.sideMap}" target="_blank" rel="noopener">Groom-side map ↗</a></div>` : ""}
+    </div>
     <div class="actions">
       <button class="btn btn-line" data-i="${i}">+ Add to calendar</button>
-      <a class="btn btn-line" href="${ev.map}" target="_blank" rel="noopener">Map</a>
+      <a class="btn btn-line" href="${ev.map}" target="_blank" rel="noopener">Bride-side map</a>
     </div>`;
   grid.appendChild(el);
 });
