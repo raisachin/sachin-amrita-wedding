@@ -1,34 +1,17 @@
-SACHIN & AMRITA — A KASHI BEGINNING
-FINAL CREATIVE BUILD / V3
+Sachin & Amrita — Claude design preserved
 
-Open index.html locally to preview.
+This package uses the uploaded Claude index.html as the source of truth.
+The layout, styling, sections, gallery, videos, event cards, and RSVP form have
+been preserved. Changes are limited to:
+- Correcting the Google Apps Script RSVP endpoint to the recovered endpoint.
+- Setting soundtrack volume to 55%.
+- Keeping the existing autoplay + first-interaction fallback and loop behavior.
 
-Included:
-- Royal Kashi / Indian luxury visual direction
-- Sachin & Amrita couple photography
-- Amrita / Pandey family section only
-- Memorial mention for beloved late grandfather Krishnanand Pandey (Baba)
-- Sangeet moved to 01 December 2026, 6 PM onwards
-- Mehendi: 02 December 2026, 6–10 PM
-- Haldi: 03 December 2026, 10 AM–12 PM
-- Wedding: 03 December 2026, 6 PM onwards
-- Hotel Atharv exact address and supplied Google Maps link
-- Dharma Kunj bride-home map search
-- Countdown
-- Photo gallery
-- Three supplied couple videos
-- RSVP visual interface
-- Mobile-first responsive design
-- Kashi / Hindi / English styling
+IMPORTANT:
+Keep your existing image/video assets and soundtrack.mp3 in the same GitHub
+repository folder as index.html. This ZIP contains the HTML and this README,
+not those media assets.
 
-Important:
-- The soundtrack button is a design placeholder until a music file is selected.
-- RSVP is currently a front-end preview; it should be connected to a private Google Sheet / form endpoint before public launch.
-- Groom-side family can be added later as a separate invitation edition.
-
-
-SOUNDTRACK
-The supplied MP3 is included at assets/soundtrack.mp3. Browsers generally block autoplay, so the floating music button starts/stops the soundtrack after the guest taps it.
-
-RSVP
-The RSVP panel is still front-end only until a Google Apps Script web-app endpoint is connected.
+Browser note: mobile browsers may block autoplay with sound until a visitor
+interacts with the page. The HTML attempts playback on load and on the first
+tap/click/key interaction, and loops the soundtrack after playback starts.
