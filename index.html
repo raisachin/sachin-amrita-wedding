@@ -243,12 +243,14 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
 /* Six-year story — designed in the same ivory / marigold / Fraunces visual language */
 .storyline{background:var(--paper-2);position:relative;overflow:hidden}
 .storyline .head{display:flex;flex-direction:column;gap:16px;margin-bottom:clamp(34px,5vw,62px)}
-.storyline .years{display:grid;grid-template-columns:1fr;gap:18px;position:relative}
-@media(min-width:620px){.storyline .years{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}}
-@media(min-width:1000px){.storyline .years{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
-.year-card{position:relative;overflow:hidden;border-radius:22px;background:var(--paper);border:1px solid rgba(54,42,30,.1);box-shadow:0 12px 35px rgba(54,42,30,.06);transform:translateY(0);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.storyline .years{display:grid;grid-template-columns:1fr;gap:26px;position:relative;isolation:isolate;padding:4px 0 8px}
+/* A continuous winding road runs behind the memories; cards alternate along it. */
+.storyline .years:before{content:"";position:absolute;z-index:-1;inset:0 10% 0 10%;opacity:.72;background-repeat:no-repeat;background-position:center;background-size:100% 100%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 1200' preserveAspectRatio='none'%3E%3Cpath d='M300 0 C300 80 80 80 80 160 S520 240 520 320 S80 400 80 480 S520 560 520 640 S80 720 80 800 S520 880 520 960 S300 1040 300 1200' fill='none' stroke='%23b87932' stroke-width='38' stroke-linecap='round' stroke-dasharray='1 0' opacity='.22'/%3E%3Cpath d='M300 0 C300 80 80 80 80 160 S520 240 520 320 S80 400 80 480 S520 560 520 640 S80 720 80 800 S520 880 520 960 S300 1040 300 1200' fill='none' stroke='%23f2c078' stroke-width='2' stroke-dasharray='8 12' opacity='.9'/%3E%3C/svg%3E")}
+@media(min-width:700px){.storyline .years{grid-template-columns:repeat(2,minmax(0,1fr));gap:44px 9%;padding:12px 3%}.year-card:nth-child(even){margin-top:100px}.year-card:nth-child(odd){margin-bottom:38px}.storyline .years:before{inset:0 0 0 0}}
+@media(min-width:1100px){.storyline .years{gap:56px 13%;padding-inline:7%}}
+.year-card{position:relative;overflow:hidden;border-radius:22px;background:var(--paper);border:1px solid rgba(54,42,30,.1);box-shadow:0 12px 35px rgba(54,42,30,.06);transform:translateY(0);transition:transform .4s var(--ease),box-shadow .4s var(--ease);width:100%;max-width:560px;justify-self:center}
 .year-card:hover{transform:translateY(-5px);box-shadow:0 18px 42px rgba(54,42,30,.12)}
-.year-card img{width:100%;height:clamp(260px,34vw,390px);object-fit:cover;display:block}
+.year-card img{width:100%;height:auto;max-height:440px;object-fit:contain;object-position:center;display:block;background:#211b14}
 .year-card .year-copy{padding:20px 22px 24px}
 .year-card .year{font-family:var(--serif);font-size:2.1rem;line-height:1;color:var(--saffron);font-style:italic}
 .year-card h3{font-family:var(--serif);font-size:1.35rem;font-weight:400;margin-top:8px}
@@ -256,6 +258,7 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
 .year-card .stamp{position:absolute;top:14px;left:14px;padding:8px 13px;border-radius:999px;background:rgba(246,239,228,.92);color:var(--ink);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;backdrop-filter:blur(8px)}
 .storyline .closing-line{margin:36px auto 0;text-align:center;max-width:34em;font-family:var(--serif);font-size:clamp(1.25rem,3vw,1.8rem);font-style:italic;color:var(--saffron)}
 .gallery .memory-note{font-family:var(--serif);font-style:italic;opacity:.7;margin-top:-28px;margin-bottom:30px}
+@media(max-width:699px){.storyline .years:before{inset:0 0 0 0;opacity:.55}.year-card:nth-child(odd){transform:translateX(-3px)}.year-card:nth-child(even){transform:translateX(3px)}.year-card img{max-height:360px}}
 @media(prefers-reduced-motion:reduce){.year-card{transition:none}}
 
 
