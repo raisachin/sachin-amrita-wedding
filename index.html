@@ -239,6 +239,25 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
   .seal svg,.marquee div{animation:none}
   .hero .bg img{animation:none;transform:none}
 }
+
+/* Six-year story — designed in the same ivory / marigold / Fraunces visual language */
+.storyline{background:var(--paper-2);position:relative;overflow:hidden}
+.storyline .head{display:flex;flex-direction:column;gap:16px;margin-bottom:clamp(34px,5vw,62px)}
+.storyline .years{display:grid;grid-template-columns:1fr;gap:18px;position:relative}
+@media(min-width:620px){.storyline .years{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}}
+@media(min-width:1000px){.storyline .years{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+.year-card{position:relative;overflow:hidden;border-radius:22px;background:var(--paper);border:1px solid rgba(54,42,30,.1);box-shadow:0 12px 35px rgba(54,42,30,.06);transform:translateY(0);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.year-card:hover{transform:translateY(-5px);box-shadow:0 18px 42px rgba(54,42,30,.12)}
+.year-card img{width:100%;height:clamp(260px,34vw,390px);object-fit:cover;display:block}
+.year-card .year-copy{padding:20px 22px 24px}
+.year-card .year{font-family:var(--serif);font-size:2.1rem;line-height:1;color:var(--saffron);font-style:italic}
+.year-card h3{font-family:var(--serif);font-size:1.35rem;font-weight:400;margin-top:8px}
+.year-card p{font-size:.92rem;opacity:.72;margin-top:6px}
+.year-card .stamp{position:absolute;top:14px;left:14px;padding:8px 13px;border-radius:999px;background:rgba(246,239,228,.92);color:var(--ink);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;backdrop-filter:blur(8px)}
+.storyline .closing-line{margin:36px auto 0;text-align:center;max-width:34em;font-family:var(--serif);font-size:clamp(1.25rem,3vw,1.8rem);font-style:italic;color:var(--saffron)}
+.gallery .memory-note{font-family:var(--serif);font-style:italic;opacity:.7;margin-top:-28px;margin-bottom:30px}
+@media(prefers-reduced-motion:reduce){.year-card{transition:none}}
+
 </style>
 </head>
 <body>
@@ -247,6 +266,7 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
 <nav class="nav" id="nav" aria-label="Main">
   <a class="mono" href="#top">S & A</a>
   <div class="links">
+    <a href="#our-story">Our story</a>
     <a href="#celebrations">Celebrations</a>
     <a href="#gallery">Moments</a>
     <a href="#venue">Venue</a>
@@ -319,6 +339,27 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
   </div>
 </section>
 
+
+<!-- SIX YEARS TO FOREVER: actual photos supplied for each year -->
+<section class="storyline pad" id="our-story">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow rv">Six years, one love</div>
+      <h2 class="rv d1">From <em>2021 to forever.</em></h2>
+      <p class="lead rv d2">Six years of growing together, collecting little memories, and finding our way to this beautiful beginning in Kashi.</p>
+    </div>
+    <div class="years">
+      <article class="year-card rv"><span class="stamp">The beginning</span><img src="2021.jpg" alt="Sachin and Amrita in 2021" loading="lazy"><div class="year-copy"><div class="year">2021</div><h3>When our story began</h3><p>A first chapter that became our favourite story.</p></div></article>
+      <article class="year-card rv d1"><span class="stamp">Growing closer</span><img src="2022.jpg" alt="A joyful memory of the couple in 2022" loading="lazy"><div class="year-copy"><div class="year">2022</div><h3>More memories, more us</h3><p>Ordinary days made extraordinary together.</p></div></article>
+      <article class="year-card rv d2"><span class="stamp">Our little world</span><img src="2023.jpg" alt="Sachin and Amrita in 2023" loading="lazy"><div class="year-copy"><div class="year">2023</div><h3>A thousand little moments</h3><p>Every laugh and every adventure brought us closer.</p></div></article>
+      <article class="year-card rv"><span class="stamp">Still choosing you</span><img src="2024.jpg" alt="Sachin and Amrita in 2024" loading="lazy"><div class="year-copy"><div class="year">2024</div><h3>Our favourite constant</h3><p>Through every season, there was always us.</p></div></article>
+      <article class="year-card rv d1"><span class="stamp">The next chapter</span><img src="2025.jpg" alt="Sachin and Amrita in 2025" loading="lazy"><div class="year-copy"><div class="year">2025</div><h3>Closer to forever</h3><p>A love that kept growing, with a future in sight.</p></div></article>
+      <article class="year-card rv d2"><span class="stamp">Roka · 2026</span><img src="roka-wide.jpg" alt="Sachin and Amrita celebrating their Roka in 2026" loading="lazy"><div class="year-copy"><div class="year">2026</div><h3>The promise of forever</h3><p>Our Roka, our families, and the beginning of our wedding chapter.</p></div></article>
+    </div>
+    <p class="closing-line rv">“Six years behind us. A lifetime waiting ahead.”</p>
+  </div>
+</section>
+
 <!-- EVENTS -->
 <section class="events pad" id="celebrations">
   <div class="wrap">
@@ -372,6 +413,14 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
       <button class="rv"><img loading="lazy" src="moment.jpg" alt="A candid moment"></button>
       <button class="rv"><img loading="lazy" src="traditional.jpg" alt="Sachin and Amrita in traditional attire"></button>
       <button class="rv"><img loading="lazy" src="selfie.jpg" alt="A personal moment"></button>
+      <button class="rv"><img loading="lazy" src="2021.jpg" alt="A memory from 2021"></button>
+      <button class="rv"><img loading="lazy" src="2022.jpg" alt="A memory from 2022"></button>
+      <button class="rv"><img loading="lazy" src="2023.jpg" alt="A memory from 2023"></button>
+      <button class="rv"><img loading="lazy" src="2024.jpg" alt="A memory from 2024"></button>
+      <button class="rv"><img loading="lazy" src="2025.jpg" alt="A memory from 2025"></button>
+      <button class="rv"><img loading="lazy" src="roka-candid.jpg" alt="A candid Roka memory from 2026"></button>
+      <button class="rv"><img loading="lazy" src="roka-portrait.jpg" alt="A portrait from Sachin and Amrita's Roka"></button>
+      <button class="rv"><img loading="lazy" src="roka-sunset.jpg" alt="A sunset portrait from 2026"></button>
     </div>
   </div>
 </section>
@@ -500,7 +549,7 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
 /* ===== CONFIG — edit these ===== */
 const CONFIG = {
   // Paste your Google Apps Script Web app URL here (it ends in /exec).
-  RSVP_ENDPOINT: "https://script.google.com/macros/s/AKfycbz2wOj2iVQBhEc9aldk9ydg0fNE3IYN893VXI6AbKMEpAku8WI-dNpEWd4MvWTijgjRPA/exec",
+  RSVP_ENDPOINT: "https://script.google.com/macros/s/AKfycbz2wOj2iVQBhEc9aldk9ydq0fNE3IYN893VXl6AbKMEpAku8Wl-dNpEWd4MvWTijgjRPA/exec",
   // Or a WhatsApp number (country code, digits only, e.g. "919876543210") to receive RSVPs.
   RSVP_WHATSAPP: "",
   WEDDING: "2026-12-03T18:00:00+05:30"
