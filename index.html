@@ -279,9 +279,116 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
 .home-celebrations .btn{margin-top:8px}
 @media(max-width:620px){.family .people{grid-template-columns:1fr}}
 
+
+/* WELCOME INTRO — layered invitation experience */
+html.intro-lock,html.intro-lock body{overflow:hidden!important;height:100%;overscroll-behavior:none}
+#inviteIntro{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;background:#21110f;color:#fff1d2;overflow:hidden;isolation:isolate;opacity:1;visibility:visible;transition:opacity .8s ease,visibility .8s ease;font-family:var(--sans,system-ui,sans-serif)}
+#inviteIntro.is-gone{opacity:0;visibility:hidden;pointer-events:none}
+#inviteIntro *{box-sizing:border-box}
+#inviteIntro .intro-sideglow{position:absolute;inset:-20%;background:radial-gradient(ellipse at 50% 20%,rgba(230,166,64,.22),transparent 36%),radial-gradient(ellipse at 50% 80%,rgba(129,30,37,.45),transparent 45%);pointer-events:none}
+#inviteIntro .intro-shell{position:relative;width:min(100%,480px);height:100%;min-height:560px;max-height:100dvh;overflow:hidden;background:#271310;box-shadow:0 0 90px #0009}
+#inviteIntro .intro-stage{position:absolute;inset:0;opacity:0;transform:scale(1.035);transition:opacity .8s ease,transform 1.5s ease;background:#351916}
+#inviteIntro.stage-on .intro-stage{opacity:1;transform:scale(1)}
+#inviteIntro .stage-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;background:radial-gradient(ellipse at 50% 38%,#8d4d24,#351916 60%,#1d100e);}
+#inviteIntro .stage-shade{position:absolute;inset:0;background:linear-gradient(180deg,#1b0d0d88,transparent 35%,#1b0d0dbb 100%)}
+#inviteIntro .blessing{position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:28px 24px;text-align:center;background:radial-gradient(ellipse at 50% 40%,#58341fc9 0%,#24110ef5 68%);transition:opacity .6s ease,transform .8s ease}
+#inviteIntro.blessing-done .blessing{opacity:0;pointer-events:none;transform:scale(1.08)}
+#inviteIntro .ganesha{width:clamp(116px,34vw,172px);height:auto;max-height:24vh;object-fit:contain;filter:drop-shadow(0 0 18px #edb84e9c);opacity:0;transform:translateY(12px) scale(.92)}
+#inviteIntro .mantra{font-family:var(--deva,serif);font-size:clamp(1rem,4vw,1.35rem);letter-spacing:.04em;color:#f4d28b;text-shadow:0 0 18px #d89a39a8}
+#inviteIntro .glass-card{width:min(100%,340px);padding:23px 22px 21px;border:1px solid #ffedc45c;border-radius:24px;background:linear-gradient(135deg,#fff8e61c,#f5d5a40b);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 18px 55px #0005,inset 0 1px #fff5}
+#inviteIntro .welcome-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;color:#f3cf87}
+#inviteIntro .welcome-name{font-family:var(--serif,Georgia,serif);font-weight:350;font-size:clamp(1.8rem,7vw,2.65rem);line-height:1.1;margin:8px 0 10px}
+#inviteIntro .welcome-copy{font-family:var(--serif,Georgia,serif);font-style:italic;color:#f7e8cf;opacity:.88;margin-bottom:18px}
+#inviteIntro .intro-btn{appearance:none;border:1px solid #ffe4a7a8;color:#fff5dc;background:linear-gradient(135deg,#d69a3b99,#fff1c11c);border-radius:999px;padding:13px 23px;font:600 .92rem var(--sans,system-ui);letter-spacing:.025em;box-shadow:0 0 24px #dfaa4c33,inset 0 1px #fff8;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease}
+#inviteIntro .intro-btn:hover{transform:translateY(-2px);box-shadow:0 0 30px #e8b45266,inset 0 1px #fff9}
+#inviteIntro .stage-ganesha{position:absolute;z-index:9;top:4.5%;left:50%;width:70px;height:70px;object-fit:contain;transform:translateX(-50%) scale(.35);opacity:0;filter:drop-shadow(0 0 13px #f5c85a);pointer-events:none}
+#inviteIntro.stage-on .stage-ganesha{opacity:.95;transform:translateX(-50%) scale(1);transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .6s ease}
+#inviteIntro .stage-mantra{position:absolute;z-index:9;top:14%;left:0;right:0;text-align:center;color:#ffe1a1;font: .72rem var(--deva,serif);text-shadow:0 2px 10px #000}
+#inviteIntro .spark-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none}
+#inviteIntro .beads{position:absolute;inset:0;z-index:3;pointer-events:none}
+#inviteIntro .beads i{position:absolute;top:-4%;width:2px;height:22%;background:linear-gradient(#f7d77c,#b77b25);transform-origin:top;opacity:.75;box-shadow:0 0 7px #e8b54d55}
+#inviteIntro .beads i:after{content:"";position:absolute;bottom:0;left:-4px;width:10px;height:13px;border-radius:70% 70% 80% 80%;background:linear-gradient(90deg,#a96b1f,#ffe6a0,#9c5e19);}
+#inviteIntro .rope-lines{position:absolute;z-index:8;top:17%;left:50%;width:74%;height:24%;transform:translateX(-50%);pointer-events:none}
+#inviteIntro .rope-lines:before,#inviteIntro .rope-lines:after{content:"";position:absolute;top:0;height:100%;width:7px;border-radius:9px;background:repeating-linear-gradient(135deg,#f7d77c 0 3px,#a96c21 3px 6px,#6d3516 6px 8px);box-shadow:0 0 9px #e4ac43aa}
+#inviteIntro .rope-lines:before{left:9%}#inviteIntro .rope-lines:after{right:9%}
+#inviteIntro .envelope-wrap{position:absolute;z-index:10;top:24%;left:50%;width:min(79%,370px);transform:translateX(-50%);transform-origin:50% 0;filter:drop-shadow(0 18px 20px #1007058c)}
+#inviteIntro .envelope-board{display:block;width:100%;height:auto;max-height:36vh;object-fit:contain;cursor:pointer;user-select:none;-webkit-user-drag:none;touch-action:pan-y;}
+#inviteIntro .seal-layer{position:absolute;width:22%;aspect-ratio:1;left:50%;top:62%;transform:translate(-50%,-50%);object-fit:contain;filter:drop-shadow(0 4px 5px #0007);pointer-events:none}
+#inviteIntro .pull-rope{position:absolute;z-index:13;top:51%;left:50%;width:46px;height:22%;transform:translateX(-50%);display:flex;align-items:flex-end;justify-content:center;touch-action:none;cursor:grab;user-select:none}
+#inviteIntro .pull-rope:before{content:"";width:10px;height:100%;border-radius:8px;background:repeating-linear-gradient(135deg,#fbe39b 0 3px,#b87520 3px 6px,#733719 6px 8px);box-shadow:0 0 12px #e7b24b66}
+#inviteIntro .pull-rope:after{content:"";position:absolute;bottom:-9px;width:28px;height:34px;background: url('assets/rope.webp') center bottom/cover no-repeat;filter:drop-shadow(0 3px 4px #0007)}
+#inviteIntro .characters{position:absolute;z-index:12;bottom:6%;left:0;right:0;height:35%;pointer-events:none}
+#inviteIntro .character{position:absolute;bottom:0;width:37%;max-height:100%;object-fit:contain;filter:drop-shadow(0 8px 10px #16080580);transform-origin:50% 90%}
+#inviteIntro #introBride{left:3%}#inviteIntro #introGroom{right:3%}
+#inviteIntro .couple-swing{position:absolute;z-index:14;bottom:8%;left:50%;width:75%;max-height:45%;object-fit:contain;transform:translateX(-50%) scale(.3);opacity:0;pointer-events:none;filter:drop-shadow(0 12px 16px #0009)}
+#inviteIntro .pull-hint{position:absolute;z-index:17;bottom:2.4%;left:50%;transform:translateX(-50%);white-space:nowrap;border:1px solid #fff6;background:#fff2;padding:9px 15px;border-radius:999px;color:#fff0d4;font-size:.76rem;letter-spacing:.025em;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 8px 24px #0003;animation:hintPulse 1.8s ease-in-out infinite}
+#inviteIntro .invite-card{position:absolute;z-index:18;left:8%;right:8%;top:50%;min-height:240px;padding:32px 20px;text-align:center;border:1px solid #ffe2a0;border-radius:8px;background:linear-gradient(135deg,#fff0c9,#d8a85e 48%,#fff0ce);color:#4a2116;box-shadow:0 0 0 8px #f0c46d22,0 20px 70px #0008;opacity:0;transform:translateY(110%) scale(.7);pointer-events:none}
+#inviteIntro .invite-card:before{content:"";position:absolute;inset:10px;border:1px solid #95601f77;pointer-events:none}
+#inviteIntro .invite-card .small{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase}
+#inviteIntro .invite-card h2{font:350 clamp(2rem,8vw,3.2rem)/1.05 var(--serif,Georgia,serif);margin:20px 0 12px}
+#inviteIntro .invite-card p{font:italic 1.1rem var(--serif,Georgia,serif)}
+#inviteIntro .intro-loader{position:absolute;z-index:30;bottom:1%;left:50%;width:90px;height:2px;transform:translateX(-50%);background:#ffffff20;overflow:hidden;border-radius:9px}
+#inviteIntro .intro-loader:after{content:"";display:block;height:100%;width:35%;background:#f9d57e;box-shadow:0 0 10px #f9d57e;animation:loaderShimmer 1.1s ease-in-out infinite}
+@keyframes hintPulse{0%,100%{box-shadow:0 8px 24px #0003,0 0 0 0 #e8ba5930}50%{box-shadow:0 8px 24px #0003,0 0 0 7px #e8ba5900}}
+@keyframes loaderShimmer{from{transform:translateX(-120%)}to{transform:translateX(360%)}}
+@media(min-width:700px){#inviteIntro{background:radial-gradient(ellipse at center,#50301e,#140c0c 70%)}#inviteIntro .intro-shell{height:min(100dvh,900px);border-inline:1px solid #f2c66c26}#inviteIntro .intro-stage{box-shadow:0 0 80px #0008}}
+@media(max-height:650px){#inviteIntro .ganesha{width:92px}#inviteIntro .blessing{gap:8px}#inviteIntro .glass-card{padding:15px}#inviteIntro .envelope-wrap{top:21%}#inviteIntro .characters{height:31%}}
+@media(prefers-reduced-motion:reduce){#inviteIntro *,#inviteIntro *:before,#inviteIntro *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+
+/* LIQUID GLASS — premium surfaces only; family names and RSVP are intentionally excluded. */
+.nav{background:rgba(38,25,20,.78);border:1px solid rgba(255,231,183,.18);box-shadow:0 12px 35px rgba(20,10,6,.16);-webkit-backdrop-filter:blur(16px) saturate(135%);backdrop-filter:blur(16px) saturate(135%);}
+.ev,.venue .card,.cd>div,.countdown .unit,.memory-note,.home-celebrations,.storyline .year-card,.reel,.gallery .frame,.lightbox .panel{background:rgba(255,249,237,.58);border:1px solid rgba(255,255,255,.52);border-radius:22px;box-shadow:0 14px 35px rgba(56,35,18,.10),inset 0 1px rgba(255,255,255,.8);-webkit-backdrop-filter:blur(14px) saturate(125%);backdrop-filter:blur(14px) saturate(125%);}
+.dark .ev,.dark .venue .card,.dark .cd>div,.dark .countdown .unit,.dark .home-celebrations,.dark .reel{background:rgba(255,247,227,.075);border-color:rgba(255,220,160,.18);box-shadow:0 14px 35px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.08);}
+.ev,.venue .card,.reel,.gallery .frame,.home-celebrations{position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s ease;}
+.ev:after,.venue .card:after,.reel:after,.gallery .frame:after,.home-celebrations:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 22%,rgba(255,255,255,.20) 44%,transparent 63%);transform:translateX(-125%);transition:transform .7s ease;}
+@media(hover:hover) and (pointer:fine){.ev:hover,.venue .card:hover,.reel:hover,.gallery .frame:hover,.home-celebrations:hover{transform:translateY(-5px);box-shadow:0 22px 45px rgba(56,35,18,.17);border-color:rgba(226,171,81,.55)}.ev:hover:after,.venue .card:hover:after,.reel:hover:after,.gallery .frame:hover:after,.home-celebrations:hover:after{transform:translateX(125%)}}
+.btn-fill{box-shadow:0 7px 24px rgba(224,102,28,.22);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;}
+.btn-fill:hover{box-shadow:0 10px 32px rgba(224,102,28,.38);filter:brightness(1.07);transform:translateY(-2px)}
+/* Explicitly keep family member name rows and the complete RSVP area free of glass styling. */
+.family .people,.family .person,.family .person h3,.family .person span,.rsvp,.rsvp *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;}
+.family .person{background:transparent!important;border-radius:0!important;box-shadow:none!important;border-color:rgba(246,239,228,.18)!important;}
+.rsvp .form-wrap,.rsvp form,.rsvp input,.rsvp textarea,.rsvp select,.rsvp .opt,.rsvp .field{background:initial;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;}
+@media(prefers-reduced-motion:reduce){.ev,.venue .card,.reel,.gallery .frame,.home-celebrations,.btn-fill{transition:none!important}.ev:hover,.venue .card:hover,.reel:hover,.gallery .frame:hover,.home-celebrations:hover{transform:none}}
+#inviteIntro.reduced-open .intro-stage{opacity:0!important}#inviteIntro.reduced-open .blessing{opacity:0!important}
 </style>
 </head>
 <body>
+
+<!-- INTERACTIVE WELCOME INTRO: assets are loaded from ./assets/ -->
+<div id="inviteIntro" aria-label="Wedding invitation welcome" role="dialog" aria-modal="true">
+ <div class="intro-sideglow"></div><div class="intro-shell" id="introShell">
+  <div class="intro-stage" id="introStage" aria-hidden="true">
+   <img class="stage-bg" src="assets/bg-stage.webp" alt="" data-intro-asset>
+   <div class="stage-shade"></div><canvas class="spark-canvas" id="sparkCanvas"></canvas>
+   <div class="beads" id="introBeads" aria-hidden="true"></div>
+   <img class="stage-ganesha" src="assets/ganesha.webp" alt="" data-intro-asset>
+   <div class="stage-mantra">ॐ श्री गणपतये नमः</div>
+   <div class="rope-lines" id="ropeLines"></div>
+   <div class="envelope-wrap" id="envelopeWrap">
+    <img class="envelope-board" id="envelopeBoard" src="assets/envelope.webp" alt="Wedding invitation envelope" data-intro-asset draggable="false">
+    <img class="seal-layer" id="sealLayer" src="assets/seal.webp" alt="Wax seal #Samrita" data-intro-asset>
+   </div>
+   <div class="pull-rope" id="pullRope" role="button" tabindex="0" aria-label="Pull the invitation rope"></div>
+   <div class="characters" id="introCharacters">
+    <img class="character" id="introBride" src="assets/bride-idle.png" alt="Bride illustration" data-intro-asset>
+    <img class="character" id="introGroom" src="assets/groom-idle.png" alt="Groom illustration" data-intro-asset>
+   </div>
+   <img class="couple-swing" id="coupleSwing" src="assets/couple-swing.webp" alt="Bride and groom on a swing" data-intro-asset>
+   <div class="pull-hint" id="pullHint">Pull the rope to open 💌</div>
+   <div class="invite-card" id="inviteCard"><div class="small">A sacred beginning</div><h2>Sachin <em>&</em> Amrita</h2><p>With love, blessings and joy,</p><p>we invite you to celebrate with us.</p><div class="small" style="margin-top:20px">Varanasi · 1–3 December 2026</div></div>
+  </div>
+  <section class="blessing" id="introBlessing">
+   
+   <img class="ganesha" id="blessingGanesha" src="assets/ganesha.webp" alt="Lord Ganesha blessing" data-intro-asset>
+   <div class="mantra">ॐ श्री गणपतये नमः</div>
+   <div class="glass-card"><div class="welcome-label">With divine blessings</div><h1 class="welcome-name" id="welcomeName">Welcome, Dear Family</h1><p class="welcome-copy">A little blessing before our story unfolds.</p><button class="intro-btn" id="beginIntro">Tap to begin ✨</button></div>
+  </section>
+  
+  <div class="intro-loader" id="introLoader"></div>
+ </div>
+</div>
+
 
 <!-- NAV -->
 <nav class="nav" id="nav" aria-label="Main">
@@ -408,6 +515,7 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
         <div class="person"><h3>Arpita Pandey</h3><span>Sister</span></div>
         <div class="person"><h3>Shubham Pandey</h3><span>Brother</span></div>
         <div class="person"><h3>Shreyanshi Pandey</h3><span>Sister-in-law</span></div>
+        <div class="person"><h3>Suraj Pandey</h3><span>Brother-in-law</span></div>
       </div>
       <div class="memory rv d1">
         <svg class="diya" viewBox="0 0 40 40" aria-hidden="true">
@@ -590,6 +698,7 @@ footer .deva{margin-top:22px;color:var(--marigold);letter-spacing:.08em}
   <small>With love, from the Pandey & Rai families</small>
   <small>Varanasi · 01—03 December 2026</small>
   <div class="deva">शुभ विवाह · प्रेम · परिवार · आशीर्वाद</div>
+  <small><a href="#" id="replayIntro" style="opacity:.7;text-decoration:underline;text-underline-offset:4px">Replay welcome blessing</a></small>
 </footer>
 
 <!-- Soundtrack: starts automatically, no toggle -->
@@ -742,5 +851,81 @@ form.addEventListener('submit', async e=>{
   }catch(err){ alert('Sorry, something went wrong. Please try again.'); }
 });
 </script>
+
+<!-- GSAP 3.12.x; vanilla JS drives interactions -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script>
+/* INTRO CONFIG */
+const INTRO_CONFIG={
+  hashtag:'#Samrita', guestFallback:'Dear Family', sessionKey:'samritaWelcomeSeen',
+  pullThreshold:0.60, ropeMax:150, blessingMs:2000, revealMs:4000,
+  colors:{gold:'#e9bd62',maroon:'#581b22',brown:'#21110f'}
+};
+(()=>{
+ const $=id=>document.getElementById(id), root=$('inviteIntro');
+ if(!root)return;
+ const params=new URLSearchParams(location.search), guest=(params.get('guest')||'').trim();
+ $('welcomeName').textContent='Welcome, '+(guest||INTRO_CONFIG.guestFallback);
+ $('sealLayer').alt='Wax seal '+INTRO_CONFIG.hashtag;
+ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ let started=false,completed=false,dragging=false,startY=0,pull=0,assetFailed=false,gsapOK=!!window.gsap;
+ const gs=window.gsap;
+ const introAssets=[...root.querySelectorAll('[data-intro-asset]')];
+ const ready=Promise.all(introAssets.map(img=>new Promise(resolve=>{
+   if(img.complete){if(!img.naturalWidth){assetFailed=true;}resolve();return;}
+   img.addEventListener('load',resolve,{once:true});img.addEventListener('error',()=>{assetFailed=true;resolve();},{once:true});
+ })));
+ // Lock scroll only when this session has not already seen the welcome screen.
+ if(sessionStorage.getItem(INTRO_CONFIG.sessionKey)==='1'){
+   root.remove();document.documentElement.classList.remove('intro-lock');return;
+ }
+ document.documentElement.classList.add('intro-lock');
+ const audio=document.getElementById('aud');
+ function startAudio(){if(!audio)return;audio.volume=.55;audio.play().catch(()=>{});}
+ function hideIntro(){
+   if(completed)return;completed=true;sessionStorage.setItem(INTRO_CONFIG.sessionKey,'1');
+   if(gs&& !reduce){gs.to(root,{opacity:0,duration:.75,ease:'power2.inOut',onComplete:()=>{root.remove();document.documentElement.classList.remove('intro-lock');window.dispatchEvent(new Event('wedding:intro-complete'));}})}
+   else{root.classList.add('is-gone');setTimeout(()=>{root.remove();document.documentElement.classList.remove('intro-lock');window.dispatchEvent(new Event('wedding:intro-complete'));},reduce?100:750)}
+ }
+ 
+ $('replayIntro')?.addEventListener('click',e=>{e.preventDefault();sessionStorage.removeItem(INTRO_CONFIG.sessionKey);location.reload()});
+ function makeBeads(){const box=$('introBeads');for(let i=0;i<13;i++){const el=document.createElement('i');el.style.left=(3+i*7.8)+'%';el.style.height=(13+(i%4)*5)+'%';box.appendChild(el);if(gs&&!reduce)gs.to(el,{rotation:i%2?3:-3,duration:1.8+(i%3)*.4,repeat:-1,yoyo:true,ease:'sine.inOut',delay:i*.05});}}
+ function particles(){const c=$('sparkCanvas'),ctx=c.getContext('2d');if(!ctx)return;let w=0,h=0,raf=0;const dpr=Math.min(devicePixelRatio||1,1.5);const dots=Array.from({length:40},()=>({x:Math.random(),y:Math.random(),r:.7+Math.random()*1.8,a:.2+Math.random()*.7,s:.0005+Math.random()*.0018,p:Math.random()*7}));function size(){w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}function draw(){ctx.clearRect(0,0,w,h);dots.forEach(d=>{d.y-=d.s;if(d.y<-.03){d.y=1.03;d.x=Math.random()}d.p+=.025;ctx.globalAlpha=d.a*(.65+.35*Math.sin(d.p));ctx.fillStyle='#ffd87c';ctx.shadowColor='#f7c65d';ctx.shadowBlur=8;ctx.beginPath();ctx.arc(d.x*w,d.y*h,d.r,0,Math.PI*2);ctx.fill()});ctx.globalAlpha=1;ctx.shadowBlur=0;if(!reduce)raf=requestAnimationFrame(draw)}size();draw();addEventListener('resize',size,{passive:true});root.addEventListener('intro:stop',()=>cancelAnimationFrame(raf),{once:true});}
+ function idle(){if(!gs||reduce)return;gs.fromTo('#blessingGanesha',{autoAlpha:0,y:12,scale:.92},{autoAlpha:1,y:0,scale:1,duration:1.1,ease:'power2.out'});gs.to('#introBride',{y:-5,rotation:-1.2,duration:1.25,repeat:-1,yoyo:true,ease:'sine.inOut'});gs.to('#introGroom',{y:-6,rotation:1.2,duration:1.4,repeat:-1,yoyo:true,ease:'sine.inOut'});gs.to('#envelopeWrap',{rotation:1.5,duration:2.3,repeat:-1,yoyo:true,ease:'sine.inOut',transformOrigin:'50% 0%'});gs.to('#pullHint',{scale:1.035,duration:.85,repeat:-1,yoyo:true,ease:'sine.inOut'});}
+ function begin(){if(started||completed)return;started=true;startAudio();if(assetFailed)root.classList.add('asset-fallback');
+   if(reduce){startAudio();root.classList.add('reduced-open');setTimeout(hideIntro,450);return;}
+   root.classList.add('stage-on');root.classList.add('blessing-done');makeBeads();particles();
+   if(gs){gs.to('.stage-ganesha',{autoAlpha:1,duration:.6});gs.fromTo('#envelopeWrap',{y:-24,rotation:-3},{y:0,rotation:0,duration:1.1,ease:'elastic.out(1,.6)',delay:.2});gs.fromTo('.character',{y:18,autoAlpha:0},{y:0,autoAlpha:1,duration:.8,stagger:.12,ease:'back.out(1.3)',delay:.25});}
+   else { $('introBlessing').style.display='none'; }
+ }
+ $('beginIntro').addEventListener('click',begin);
+ // Rope can be dragged with pointer events or tapped/clicked to trigger the full sequence.
+ const rope=$('pullRope'), board=$('envelopeWrap');
+ function setPull(v){pull=Math.max(0,Math.min(INTRO_CONFIG.ropeMax,v));if(gs){gs.set(rope,{y:pull});gs.set(board,{y:-pull*.52,rotation:pull*.018});gs.set('#introBride',{rotation:-pull*.045,x:-pull*.08});gs.set('#introGroom',{rotation:pull*.045,x:pull*.08});}else{rope.style.transform=`translate(-50%,${pull}px)`;board.style.transform=`translate(-50%,${-pull*.52}px) rotate(${pull*.018}deg)`}}
+ function pointerDown(e){if(!started){begin();return}if(completed)return;dragging=true;startY=e.clientY;rope.setPointerCapture?.(e.pointerId);root.classList.add('pulling');$('introBride').src='assets/bride-hang.png';$('introGroom').src='assets/groom-hang.png';}
+ function pointerMove(e){if(!dragging||completed)return;const dy=Math.max(0,e.clientY-startY);setPull(dy);if(dy/INTRO_CONFIG.ropeMax>=INTRO_CONFIG.pullThreshold){dragging=false;completePull()}}
+ function pointerUp(){if(!dragging)return;dragging=false;root.classList.remove('pulling');if(pull/INTRO_CONFIG.ropeMax>=INTRO_CONFIG.pullThreshold)completePull();else if(gs){gs.to([rope,board,'#introBride','#introGroom'],{y:0,x:0,rotation:0,duration:.9,ease:'elastic.out(1,.35)',overwrite:true});$('introBride').src='assets/bride-idle.png';$('introGroom').src='assets/groom-idle.png';}else{setPull(0);$('introBride').src='assets/bride-idle.png';$('introGroom').src='assets/groom-idle.png';}}
+ rope.addEventListener('pointerdown',pointerDown);rope.addEventListener('pointermove',pointerMove);rope.addEventListener('pointerup',pointerUp);rope.addEventListener('pointercancel',pointerUp);rope.addEventListener('click',()=>{if(started)completePull();});rope.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();begin();if(started)completePull()}});
+ $('envelopeBoard').addEventListener('click',()=>{if(started)completePull();else begin()});
+ function completePull(){if(completed||!started)return;completed=true;startAudio();$('pullHint').textContent='With love, our story begins ✨';
+   if(!gs){hideIntro();return}
+   gs.timeline({defaults:{overwrite:'auto'}})
+    .to('#introBride',{autoAlpha:0,scale:.8,duration:.3},0)
+    .to('#introGroom',{autoAlpha:0,scale:.8,duration:.3},0)
+    .to('#coupleSwing',{autoAlpha:1,scale:1,rotation:-5,duration:.6,ease:'back.out(1.4)'},.15)
+    .to('#coupleSwing',{rotation:5,duration:.55,repeat:3,yoyo:true,ease:'sine.inOut'},.75)
+    .to('#envelopeWrap',{y:-innerHeight*.75,rotation:7,duration:.8,ease:'power2.in'},.45)
+    .to('#sealLayer',{y:innerHeight*.4,rotation:45,scale:.65,duration:.75,ease:'bounce.out'},.4)
+    .add(()=>{const seal=$('sealLayer');seal.src='assets/seal-cracked.webp';seal.alt='Cracked wax seal '+INTRO_CONFIG.hashtag;})
+    .to('#inviteCard',{autoAlpha:1,y:'-50%',scale:1,duration:1.05,ease:'power3.out'},1.05)
+    .to('#inviteCard',{scale:1.06,duration:.5,yoyo:true,repeat:1,ease:'sine.inOut'},2.1)
+    .to(root,{opacity:0,duration:.8,ease:'power2.inOut',delay:.35,onComplete:()=>{completed=false;hideIntro()}});
+ }
+ ready.then(()=>{if(assetFailed)root.classList.add('asset-fallback');});
+ idle();
+ // Session-seen only after successful intro completion; do not auto-complete before the guest chooses.
+})();
+</script>
+
 </body>
 </html>
