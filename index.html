@@ -75,12 +75,21 @@ section{position:relative}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
   linear-gradient(180deg,rgba(20,16,13,.55) 0%,rgba(20,16,13,.05) 30%,rgba(20,16,13,.55) 62%,rgba(20,16,13,.96) 100%)}
 .hero .kashi{position:absolute;top:clamp(70px,12vh,130px);left:var(--gutter);font-family:var(--deva);font-weight:600;font-size:clamp(4rem,16vw,12rem);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(246,239,228,.55);letter-spacing:.02em;pointer-events:none;z-index:-1}
-/* Main-hero devotional signature: mantra + delicate gold line-art of Shiva–Parvati */
+/* Main-hero devotional signature: mantra + original Shiva–Parvati artwork */
 .hero .ganesh-mantra{position:absolute;z-index:2;top:clamp(72px,9vh,104px);left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--deva);font-size:clamp(.76rem,2.6vw,1.05rem);letter-spacing:.035em;color:#ffe0a0;text-shadow:0 2px 12px rgba(0,0,0,.9),0 0 20px rgba(226,168,70,.35)}
-.hero .shiv-parvati-blessing{position:absolute;z-index:1;top:clamp(102px,14vh,148px);left:50%;transform:translateX(-50%);width:clamp(112px,22vw,160px);height:clamp(78px,15vh,108px);overflow:visible;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 3px 12px rgba(0,0,0,.35))}
-.hero .shiv-parvati-blessing svg{width:100%;height:100%;display:block;overflow:visible}
-.hero .divine-caption{position:absolute;z-index:1;top:calc(clamp(102px,14vh,148px) + clamp(76px,14vh,104px));left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--deva);font-size:clamp(.68rem,1.8vw,.84rem);letter-spacing:.04em;color:#f5d58e;text-shadow:0 2px 12px #000;opacity:.98}
-@media(max-width:620px){.hero .ganesh-mantra{top:76px;font-size:.76rem}.hero .shiv-parvati-blessing{top:105px;width:124px;height:83px}.hero .divine-caption{top:188px;font-size:.65rem}.hero .seal{width:66px;top:78px;right:14px}}
+.hero .shiv-parvati-hero-image{position:absolute;z-index:1;top:clamp(102px,14vh,148px);left:50%;transform:translateX(-50%);width:clamp(112px,22vw,160px);height:clamp(112px,22vw,160px);object-fit:cover;object-position:center;border-radius:50%;border:2px solid rgba(238,190,100,.88);box-shadow:0 0 0 5px rgba(31,18,11,.35),0 6px 22px rgba(0,0,0,.45)}
+.hero .divine-caption{position:absolute;z-index:1;top:calc(clamp(102px,14vh,148px) + clamp(114px,22vw,160px) + 5px);left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--deva);font-size:clamp(.68rem,1.8vw,.84rem);letter-spacing:.04em;color:#f5d58e;text-shadow:0 2px 12px #000;opacity:.98}
+.divine-blessing{background:linear-gradient(135deg,#f6efe4,#efe1c8);overflow:hidden;border-block:1px solid rgba(157,98,45,.22)}
+.divine-blessing .divine-inner{max-width:1050px;margin:auto;display:grid;grid-template-columns:minmax(130px,.75fr) minmax(0,1.6fr);gap:clamp(22px,5vw,60px);align-items:center;padding:clamp(28px,5vw,58px);border:1px solid rgba(157,98,45,.35);outline:1px solid rgba(157,98,45,.12);outline-offset:6px;background:rgba(255,250,240,.48)}
+.divine-blessing .divine-vector{width:100%;max-width:250px;margin:auto;filter:drop-shadow(0 5px 8px rgba(122,76,30,.12))}
+.divine-blessing .divine-copy{text-align:left}
+.divine-blessing .divine-om{font-family:var(--deva);font-size:2.5rem;color:#a56d2e;line-height:1}
+.divine-blessing .divine-copy .eyebrow{margin:12px 0}
+.divine-blessing .divine-copy h2{font-size:clamp(2rem,5vw,3.8rem);margin:8px 0 18px}
+.divine-blessing .divine-copy p{color:#45362a;max-width:650px}
+.divine-blessing .divine-copy .sanskrit{font-family:var(--deva);color:#8b5424;line-height:1.9;margin-top:18px}
+.divine-blessing .divine-note{display:block;margin-top:16px;font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;color:#95682f}
+@media(max-width:620px){.hero .ganesh-mantra{top:76px;font-size:.76rem}.hero .shiv-parvati-hero-image{top:105px;width:124px;height:124px}.hero .divine-caption{top:235px;font-size:.65rem}.hero .seal{width:66px;top:78px;right:14px}.divine-blessing .divine-inner{grid-template-columns:1fr;text-align:center;gap:20px;padding:24px}.divine-blessing .divine-vector{width:min(210px,68%)}.divine-blessing .divine-copy{text-align:center}.divine-blessing .divine-copy .eyebrow{justify-content:center}.divine-blessing .divine-copy .eyebrow:before{display:none}}
 
 .hero .inner{width:100%;padding-block:0 clamp(44px,8vh,90px)}
 .hero .when{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
@@ -420,30 +429,7 @@ html.intro-lock,html.intro-lock body{overflow:hidden!important;height:100%;overs
   <div class="bg"><img src="hero.jpg" alt="Amrita and Sachin"></div>
   <div class="kashi deva" aria-hidden="true">काशी</div>
   <div class="ganesh-mantra deva">ॐ &nbsp; श्री गणेशाय नमः &nbsp; ॐ</div>
-  <div class="shiv-parvati-blessing" role="img" aria-label="A delicate golden vector illustration of Lord Shiva and Maa Parvati">
-    <svg viewBox="0 0 220 145" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs><linearGradient id="heroDivineGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0b5"/><stop offset=".52" stop-color="#e8bd68"/><stop offset="1" stop-color="#b77b32"/></linearGradient></defs>
-      <g fill="none" stroke="url(#heroDivineGold)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-        <!-- Shiva: topknot, crescent, face and shoulders -->
-        <path d="M70 37 Q67 19 86 13 Q101 10 109 24 L103 35"/><path d="M70 20 Q58 11 64 4 Q76 7 81 16"/>
-        <path d="M77 42 Q77 28 91 27 Q106 29 107 43 L104 59 Q98 72 91 72 Q79 68 76 57 Z"/>
-        <path d="M85 45 L97 45 M91 39 L91 51 M85 60 Q91 65 98 60"/>
-        <path d="M68 77 Q91 65 113 78 L126 119 L57 119 Z"/><path d="M73 82 L91 100 L109 82 M91 100 L91 119"/>
-        <!-- Parvati: crown, face and sari silhouette -->
-        <path d="M128 34 L139 14 L150 34 M130 36 Q140 26 150 36"/>
-        <path d="M128 45 Q128 32 141 31 Q154 32 155 45 L153 59 Q148 71 141 71 Q131 67 128 59 Z"/>
-        <path d="M135 46h1 M147 46h1 M136 59 Q141 64 147 59"/>
-        <path d="M119 80 Q141 66 163 80 L183 119 L103 119 Z"/><path d="M120 84 L141 102 L161 84 M141 102 L141 119"/>
-        <!-- joined hands and gentle ground flourish -->
-        <path d="M108 91 Q119 94 126 87 M126 87 Q132 83 136 88"/>
-        <!-- trident and damaru beside Shiva -->
-        <path d="M36 34 L36 111 M25 45 Q25 28 36 21 Q47 28 47 45 M27 31 L36 39 L45 31"/>
-        <path d="M30 64 L42 73 L30 82 L42 91"/>
-        <path d="M48 130 Q109 145 177 130 M59 136 Q109 148 166 136" stroke-width="1.8" opacity=".8"/>
-        <path d="M110 124 l5 5 -5 5 -5-5z" fill="url(#heroDivineGold)" stroke="none"/>
-      </g>
-    </svg>
-  </div>
+  <img class="shiv-parvati-hero-image" src="assets/shiv-parvati.webp" alt="Lord Shiva and Maa Parvati blessing Amrita and Sachin" />
   <div class="divine-caption deva">शिव-पार्वती का आशीर्वाद</div>
 
   <div class="seal" aria-hidden="true">
@@ -493,6 +479,34 @@ html.intro-lock,html.intro-lock body{overflow:hidden!important;height:100%;overs
       <p class="lead rv d2">With the love, blessings and warmth of our families, we invite you to witness the beginning of our forever — in the timeless city of Varanasi.</p>
       <div class="tags deva rv d2">शुभ विवाह · प्रेम · परिवार · आशीर्वाद</div>
       <blockquote class="rv d3">“May our first steps together begin in Kashi, and may every step thereafter lead us closer to a lifetime together.”</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- Devotional blessing section: preserve the original line-art vector in its own section -->
+<section class="divine-blessing pad" aria-labelledby="divineBlessingTitle">
+  <div class="divine-inner wrap rv">
+    <div class="divine-vector" role="img" aria-label="Golden line-art vector of Lord Shiva and Goddess Parvati">
+      <svg viewBox="0 0 220 145" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="sectionDivineGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0b5"/><stop offset=".52" stop-color="#d9a64e"/><stop offset="1" stop-color="#9d622d"/></linearGradient></defs>
+        <g fill="none" stroke="url(#sectionDivineGold)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M70 37 Q67 19 86 13 Q101 10 109 24 L103 35 M70 20 Q58 11 64 4 Q76 7 81 16"/>
+          <path d="M77 42 Q77 28 91 27 Q106 29 107 43 L104 59 Q98 72 91 72 Q79 68 76 57 Z M85 45 L97 45 M91 39 L91 51 M85 60 Q91 65 98 60"/>
+          <path d="M68 77 Q91 65 113 78 L126 119 L57 119 Z M73 82 L91 100 L109 82 M91 100 L91 119"/>
+          <path d="M128 34 L139 14 L150 34 M130 36 Q140 26 150 36 M128 45 Q128 32 141 31 Q154 32 155 45 L153 59 Q148 71 141 71 Q131 67 128 59 Z"/>
+          <path d="M135 46h1 M147 46h1 M136 59 Q141 64 147 59 M119 80 Q141 66 163 80 L183 119 L103 119 Z M120 84 L141 102 L161 84 M141 102 L141 119"/>
+          <path d="M108 91 Q119 94 126 87 M126 87 Q132 83 136 88 M36 34 L36 111 M25 45 Q25 28 36 21 Q47 28 47 45 M27 31 L36 39 L45 31 M30 64 L42 73 L30 82 L42 91"/>
+          <path d="M48 130 Q109 145 177 130 M59 136 Q109 148 166 136" stroke-width="1.8" opacity=".8"/>
+        </g>
+      </svg>
+    </div>
+    <div class="divine-copy">
+      <div class="divine-om">ॐ</div>
+      <p class="eyebrow">A prayer for our new beginning</p>
+      <h2 id="divineBlessingTitle">Blessed by <em>Shiva &amp; Parvati.</em></h2>
+      <p>May the blessings of Lord Shiva and Goddess Parvati be with us as we begin our life together—with devotion, harmony, strength, and everlasting love.</p>
+      <p class="sanskrit deva">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥</p>
+      <span class="divine-note">With reverence and gratitude · हर हर महादेव</span>
     </div>
   </div>
 </section>
