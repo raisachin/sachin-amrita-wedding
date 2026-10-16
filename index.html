@@ -75,11 +75,12 @@ section{position:relative}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
   linear-gradient(180deg,rgba(20,16,13,.55) 0%,rgba(20,16,13,.05) 30%,rgba(20,16,13,.55) 62%,rgba(20,16,13,.96) 100%)}
 .hero .kashi{position:absolute;top:clamp(70px,12vh,130px);left:var(--gutter);font-family:var(--deva);font-weight:600;font-size:clamp(4rem,16vw,12rem);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(246,239,228,.55);letter-spacing:.02em;pointer-events:none;z-index:-1}
-/* Divine Shiv–Parvati presence on the main homepage */
-.hero .shiv-parvati-blessing{position:absolute;z-index:1;top:clamp(88px,15vh,150px);left:50%;transform:translateX(-50%);width:clamp(78px,10vw,118px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:1px solid rgba(238,190,91,.8);padding:4px;background:linear-gradient(145deg,#f7d98d,#6d3a17 55%,#f6d58a);box-shadow:0 0 0 5px rgba(225,174,75,.09),0 0 30px rgba(224,170,68,.25)}
-.hero .shiv-parvati-blessing img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 25%;border-radius:50%;filter:saturate(.88)}
-.hero .divine-caption{position:absolute;z-index:1;top:calc(clamp(88px,15vh,150px) + clamp(82px,10vw,122px));left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--deva);font-size:clamp(.72rem,1.5vw,.9rem);letter-spacing:.04em;color:#f5d58e;text-shadow:0 2px 12px #000;opacity:.96}
-@media(max-width:620px){.hero .shiv-parvati-blessing{top:clamp(78px,11vh,105px);width:76px}.hero .divine-caption{top:calc(clamp(78px,11vh,105px) + 81px);font-size:.68rem}.hero .seal{width:76px;top:80px}}
+/* Main-hero devotional signature: mantra + delicate gold line-art of Shiva–Parvati */
+.hero .ganesh-mantra{position:absolute;z-index:2;top:clamp(72px,9vh,104px);left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--deva);font-size:clamp(.76rem,2.6vw,1.05rem);letter-spacing:.035em;color:#ffe0a0;text-shadow:0 2px 12px rgba(0,0,0,.9),0 0 20px rgba(226,168,70,.35)}
+.hero .shiv-parvati-blessing{position:absolute;z-index:1;top:clamp(102px,14vh,148px);left:50%;transform:translateX(-50%);width:clamp(112px,22vw,160px);height:clamp(78px,15vh,108px);overflow:visible;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 3px 12px rgba(0,0,0,.35))}
+.hero .shiv-parvati-blessing svg{width:100%;height:100%;display:block;overflow:visible}
+.hero .divine-caption{position:absolute;z-index:1;top:calc(clamp(102px,14vh,148px) + clamp(76px,14vh,104px));left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--deva);font-size:clamp(.68rem,1.8vw,.84rem);letter-spacing:.04em;color:#f5d58e;text-shadow:0 2px 12px #000;opacity:.98}
+@media(max-width:620px){.hero .ganesh-mantra{top:76px;font-size:.76rem}.hero .shiv-parvati-blessing{top:105px;width:124px;height:83px}.hero .divine-caption{top:188px;font-size:.65rem}.hero .seal{width:66px;top:78px;right:14px}}
 
 .hero .inner{width:100%;padding-block:0 clamp(44px,8vh,90px)}
 .hero .when{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
@@ -418,7 +419,31 @@ html.intro-lock,html.intro-lock body{overflow:hidden!important;height:100%;overs
 <header class="hero" id="top">
   <div class="bg"><img src="hero.jpg" alt="Amrita and Sachin"></div>
   <div class="kashi deva" aria-hidden="true">काशी</div>
-  <div class="shiv-parvati-blessing" aria-label="Shiva and Maa Parvati, divine blessings"><img src="assets/shiv-parvati.webp" alt="Shiva and Maa Parvati" loading="eager"></div>
+  <div class="ganesh-mantra deva">ॐ &nbsp; श्री गणेशाय नमः &nbsp; ॐ</div>
+  <div class="shiv-parvati-blessing" role="img" aria-label="A delicate golden vector illustration of Lord Shiva and Maa Parvati">
+    <svg viewBox="0 0 220 145" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs><linearGradient id="heroDivineGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0b5"/><stop offset=".52" stop-color="#e8bd68"/><stop offset="1" stop-color="#b77b32"/></linearGradient></defs>
+      <g fill="none" stroke="url(#heroDivineGold)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Shiva: topknot, crescent, face and shoulders -->
+        <path d="M70 37 Q67 19 86 13 Q101 10 109 24 L103 35"/><path d="M70 20 Q58 11 64 4 Q76 7 81 16"/>
+        <path d="M77 42 Q77 28 91 27 Q106 29 107 43 L104 59 Q98 72 91 72 Q79 68 76 57 Z"/>
+        <path d="M85 45 L97 45 M91 39 L91 51 M85 60 Q91 65 98 60"/>
+        <path d="M68 77 Q91 65 113 78 L126 119 L57 119 Z"/><path d="M73 82 L91 100 L109 82 M91 100 L91 119"/>
+        <!-- Parvati: crown, face and sari silhouette -->
+        <path d="M128 34 L139 14 L150 34 M130 36 Q140 26 150 36"/>
+        <path d="M128 45 Q128 32 141 31 Q154 32 155 45 L153 59 Q148 71 141 71 Q131 67 128 59 Z"/>
+        <path d="M135 46h1 M147 46h1 M136 59 Q141 64 147 59"/>
+        <path d="M119 80 Q141 66 163 80 L183 119 L103 119 Z"/><path d="M120 84 L141 102 L161 84 M141 102 L141 119"/>
+        <!-- joined hands and gentle ground flourish -->
+        <path d="M108 91 Q119 94 126 87 M126 87 Q132 83 136 88"/>
+        <!-- trident and damaru beside Shiva -->
+        <path d="M36 34 L36 111 M25 45 Q25 28 36 21 Q47 28 47 45 M27 31 L36 39 L45 31"/>
+        <path d="M30 64 L42 73 L30 82 L42 91"/>
+        <path d="M48 130 Q109 145 177 130 M59 136 Q109 148 166 136" stroke-width="1.8" opacity=".8"/>
+        <path d="M110 124 l5 5 -5 5 -5-5z" fill="url(#heroDivineGold)" stroke="none"/>
+      </g>
+    </svg>
+  </div>
   <div class="divine-caption deva">शिव-पार्वती का आशीर्वाद</div>
 
   <div class="seal" aria-hidden="true">
@@ -935,16 +960,16 @@ const INTRO_CONFIG={
     .to('#envelopeWrap',{y:-innerHeight*.75,rotation:7,duration:.8,ease:'power2.in'},.45)
     .to('#sealLayer',{y:innerHeight*.4,rotation:45,scale:.65,duration:.75,ease:'bounce.out'},.4)
     .add(()=>{const seal=$('sealLayer');seal.src='assets/seal-cracked.webp';seal.alt='Cracked wax seal '+INTRO_CONFIG.hashtag;})
+    .add(()=>{completed=false;initScratchCard()},1.0)
     .to('#inviteCard',{autoAlpha:1,y:'-50%',scale:1,duration:1.05,ease:'power3.out'},1.05)
-    .to('#inviteCard',{scale:1.025,duration:.5,yoyo:true,repeat:1,ease:'sine.inOut'},2.1)
-    .add(()=>{completed=false;initScratchCard()});
+    .to('#inviteCard',{scale:1.025,duration:.5,yoyo:true,repeat:1,ease:'sine.inOut'},2.1);
  }
  function initScratchCard(){
    const foil=$('scratchFoil'),canvas=$('scratchCanvas'),card=$('inviteCard');
    if(!foil||!canvas)return;
    card.classList.add('scratching');
    const ctx=canvas.getContext('2d',{willReadFrequently:true});let w=0,h=0,isScratching=false,last=null,done=false;
-   function size(){const r=foil.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);w=r.width;h=r.height;canvas.width=Math.max(1,Math.round(w*dpr));canvas.height=Math.max(1,Math.round(h*dpr));canvas.style.width=w+'px';canvas.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,w,h);const grad=ctx.createLinearGradient(0,0,w,h);grad.addColorStop(0,'#f8e4a6');grad.addColorStop(.18,'#b9802e');grad.addColorStop(.33,'#fff0bc');grad.addColorStop(.51,'#c18b3b');grad.addColorStop(.70,'#ffe9a6');grad.addColorStop(1,'#a86d22');ctx.fillStyle=grad;ctx.fillRect(0,0,w,h);ctx.globalAlpha=.28;ctx.strokeStyle='#fff8';ctx.lineWidth=1;for(let x=-h;x<w;x+=8){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x+h,h);ctx.stroke()}ctx.globalAlpha=1;}
+   function size(){const dpr=Math.min(window.devicePixelRatio||1,2);w=foil.clientWidth;h=foil.clientHeight;if(!w||!h)return;canvas.width=Math.max(1,Math.round(w*dpr));canvas.height=Math.max(1,Math.round(h*dpr));canvas.style.width='100%';canvas.style.height='100%';ctx.setTransform(dpr,0,0,dpr,0,0);ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,w,h);const grad=ctx.createLinearGradient(0,0,w,h);grad.addColorStop(0,'#f8e4a6');grad.addColorStop(.18,'#b9802e');grad.addColorStop(.33,'#fff0bc');grad.addColorStop(.51,'#c18b3b');grad.addColorStop(.70,'#ffe9a6');grad.addColorStop(1,'#a86d22');ctx.fillStyle=grad;ctx.fillRect(0,0,w,h);ctx.globalAlpha=.28;ctx.strokeStyle='#fff8';ctx.lineWidth=1;for(let x=-h;x<w;x+=8){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x+h,h);ctx.stroke()}ctx.globalAlpha=1;}
    function scratchAt(e){const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;ctx.globalCompositeOperation='destination-out';ctx.lineCap='round';ctx.lineJoin='round';ctx.lineWidth=Math.max(30,Math.min(48,w*.12));ctx.beginPath();if(last){ctx.moveTo(last.x,last.y);ctx.lineTo(x,y)}else{ctx.moveTo(x,y);ctx.lineTo(x+.1,y+.1)}ctx.stroke();last={x,y};}
    function progress(){const sw=Math.max(1,Math.floor(canvas.width/24)),sh=Math.max(1,Math.floor(canvas.height/24));const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;let clear=0,total=0;for(let y=0;y<canvas.height;y+=sh){for(let x=0;x<canvas.width;x+=sw){if(data[(y*canvas.width+x)*4+3]<30)clear++;total++}}if(clear/total>.48&&!done){done=true;foil.style.transition='opacity .45s ease';foil.style.opacity='0';setTimeout(()=>{foil.remove();card.classList.remove('scratching');hideIntro()},480)}}
    foil.addEventListener('pointerdown',e=>{if(done)return;isScratching=true;last=null;foil.setPointerCapture?.(e.pointerId);scratchAt(e);e.preventDefault()});
@@ -952,7 +977,9 @@ const INTRO_CONFIG={
    function endScratch(){if(!isScratching)return;isScratching=false;last=null;progress()}
    foil.addEventListener('pointerup',endScratch);foil.addEventListener('pointercancel',endScratch);
    foil.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();if(!done){done=true;foil.remove();card.classList.remove('scratching');hideIntro()}}});
-   size();addEventListener('resize',size,{passive:true});
+   // Size the foil once before it is shown. Repainting it on mobile viewport
+   // resize used to erase the guest's scratch progress when browser chrome moved.
+   size();
  }
  ready.then(()=>{if(assetFailed)root.classList.add('asset-fallback');});
  idle();
