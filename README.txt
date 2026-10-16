@@ -1,19 +1,25 @@
-SACHIN & AMRITA — INTERACTIVE WELCOME UPDATE
+SAMRITA — WEDDING WEBSITE UPDATE
 
-Files:
-- index.html: updated full website and welcome intro
-- soundtrack.mp3: soundtrack used by the existing player
-- assets/: visual layers used by the intro
+Files included:
+- index.html: full website with welcome intro, rope interaction, scratch-to-reveal golden invitation card, and main page
+- soundtrack.mp3: existing soundtrack
+- assets/: welcome intro artwork
 
 Install:
-1. Back up your repository first.
-2. Upload index.html and soundtrack.mp3 to the repository root, replacing the old versions.
-3. Upload the entire assets/ folder to the repository root.
-4. Keep all existing wedding photos, videos, and other media files in their original paths; this package does not replace those files.
+1. Back up your GitHub Pages repository.
+2. Replace index.html and soundtrack.mp3 in the repository root with the included files.
+3. Upload the included assets/ folder to the repository root.
+4. Keep your existing wedding photos, videos, and other media files in their original paths; this update does not replace them.
 5. Commit and push to GitHub Pages.
 
 Guest greeting: append ?guest=Chacha%20Chachi%20ji to the website URL. Missing guest names default to “Dear Family”.
 
-Behavior: welcome intro appears once per browser session. “Replay welcome blessing” in the footer clears the session flag and reloads the intro. There are no Skip buttons or separate Open Invitation buttons; the blessing page only has “Tap to begin”. Music playback is attempted on load and starts on the first tap if the browser blocks autoplay.
+Intro flow:
+1. Welcome blessing — tap “Tap to begin”.
+2. Pull the invitation rope.
+3. Scratch the golden card to reveal the invitation details.
+4. The intro closes and the main website opens.
 
-Assets note: the supplied generated character images are used as available; groom pulling uses the standing groom artwork with animated leaning/pulling motion. The stage, Ganesha, envelope, rope, and wax seal assets are supplied as individual layers.
+Audio: soundtrack remains silent throughout the welcome, rope, and scratch-card stages. It starts only when the main page opens. Browser autoplay policies may still require a user interaction on some browsers; the guest has already interacted with the intro by this point.
+
+The welcome intro appears once per browser session. “Replay welcome blessing” in the footer clears the session flag and reloads the intro. No Skip or separate Open Invitation button is included.
