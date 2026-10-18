@@ -920,7 +920,8 @@ const INTRO_CONFIG={
  const params=new URLSearchParams(location.search);
  const inviteCode=(params.get('invite')||'').trim().toUpperCase();
  const inviteGuests={"GJRLW4":"Rishabh Rai","ZVNNCD":"Himanshu Rai","WY0LYK":"Avanish Rai","G4CAAC":"Abuzar Ansari","20K3ZS":"Mukesh Gaud","3TTKSE":"Shivam Rai","1MXUE7":"Rajnish Rai","NNB8GA":"Prince Rai","DLRRLC":"Prashant Rai (Niraj)","7T8BCF":"Majid Bhai","CMVA7Y":"Shubham Sahu","9QZDQ6":"Shubham Rai","0FUOPT":"Prateek Singh","7E74CF":"Mohit Goyal","QDD0FN":"Chaman Verma","6IFZNS":"Kartik Chakrwal","355M4Z":"Nilesh Prajapati","DHOH5Y":"Vishal Soni","ETQXUV":"Govind Shekhwat","W5M1C8":"Vinod Pal","PZF0H9":"Deepak Koranaga","MQUCLQ":"Shubham Pandey","AWU8VC":"Devansh Pandey","9QTT73":"Ashwani & Topu","9PQCRD":"Madhur Singh","44AIY4":"Rohit Ranjan Sir","Y547G5":"Aaron Peter Sir","OCPZ3Z":"BT Sir","OAFYKK":"Bhanu Priya","MEAQ94":"Paras Sir","TP9FEX":"Hitesh Nagpal","BUHFM0":"Karan Sabharwal","ORG0JV":"Aniket Agrahari","OEA0JI":"Lucky Bhai","9PJXXK":"Divyanshu Ananad","S9E9ZV":"Durgesh Tiwari","L5XN1Q":"Vicky Bhaiya","2HLU7N":"Divyanshu Kumar","03B19J":"Mohammad Shaqib","U6Y6Z5":"Ujjwal Jha","S2ZX20":"Rahul Chahar","E0P9BS":"Chotu Rai"};
- const guest=inviteGuests[inviteCode]||'';
+ // Support both private invite-code links (?invite=CODE) and older/direct personalized links (?guest=Name).
+ const guest=inviteGuests[inviteCode]||(params.get('guest')||'').trim();
  $('welcomeName').textContent='Welcome, '+(guest||INTRO_CONFIG.guestFallback);
  $('sealLayer').alt='Wax seal '+INTRO_CONFIG.hashtag;
  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
