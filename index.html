@@ -753,8 +753,9 @@ html.intro-lock,html.intro-lock body{overflow:hidden!important;height:100%;overs
   <small><a href="#" id="replayIntro" style="opacity:.7;text-decoration:underline;text-underline-offset:4px">Replay welcome blessing</a></small>
 </footer>
 
-<!-- Soundtrack: starts automatically, no toggle -->
-<audio id="aud" src="soundtrack.mp3" loop preload="none"></audio>
+<!-- Soundtrack: prime playback on the guest's first tap; unmute when the main invitation opens. -->
+<audio id="aud" src="soundtrack.mp3" loop preload="auto" playsinline></audio>
+<button id="musicFallback" type="button" aria-label="Play wedding music" style="display:none;position:fixed;right:16px;bottom:16px;z-index:9999;border:1px solid #c8a15a;border-radius:999px;background:#581b22;color:#fff1cc;padding:11px 16px;font:600 13px 'Hanken Grotesk',sans-serif;box-shadow:0 4px 18px #0003">♫ Play Music</button>
 
 <!-- Lightbox -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
@@ -916,7 +917,10 @@ const INTRO_CONFIG={
 (()=>{
  const $=id=>document.getElementById(id), root=$('inviteIntro');
  if(!root)return;
- const params=new URLSearchParams(location.search), guest=(params.get('guest')||'').trim();
+ const params=new URLSearchParams(location.search);
+ const inviteCode=(params.get('invite')||'').trim().toUpperCase();
+ const inviteGuests={"GJRLW4":"Rishabh Rai","ZVNNCD":"Himanshu Rai","WY0LYK":"Avanish Rai","G4CAAC":"Abuzar Ansari","20K3ZS":"Mukesh Gaud","3TTKSE":"Shivam Rai","1MXUE7":"Rajnish Rai","NNB8GA":"Prince Rai","DLRRLC":"Prashant Rai (Niraj)","7T8BCF":"Majid Bhai","CMVA7Y":"Shubham Sahu","9QZDQ6":"Shubham Rai","0FUOPT":"Prateek Singh","7E74CF":"Mohit Goyal","QDD0FN":"Chaman Verma","6IFZNS":"Kartik Chakrwal","355M4Z":"Nilesh Prajapati","DHOH5Y":"Vishal Soni","ETQXUV":"Govind Shekhwat","W5M1C8":"Vinod Pal","PZF0H9":"Deepak Koranaga","MQUCLQ":"Shubham Pandey","AWU8VC":"Devansh Pandey","9QTT73":"Ashwani & Topu","9PQCRD":"Madhur Singh","44AIY4":"Rohit Ranjan Sir","Y547G5":"Aaron Peter Sir","OCPZ3Z":"BT Sir","OAFYKK":"Bhanu Priya","MEAQ94":"Paras Sir","TP9FEX":"Hitesh Nagpal","BUHFM0":"Karan Sabharwal","ORG0JV":"Aniket Agrahari","OEA0JI":"Lucky Bhai","9PJXXK":"Divyanshu Ananad","S9E9ZV":"Durgesh Tiwari","L5XN1Q":"Vicky Bhaiya","2HLU7N":"Divyanshu Kumar","03B19J":"Mohammad Shaqib","U6Y6Z5":"Ujjwal Jha","S2ZX20":"Rahul Chahar","E0P9BS":"Chotu Rai"};
+ const guest=inviteGuests[inviteCode]||'';
  $('welcomeName').textContent='Welcome, '+(guest||INTRO_CONFIG.guestFallback);
  $('sealLayer').alt='Wax seal '+INTRO_CONFIG.hashtag;
  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -928,8 +932,34 @@ const INTRO_CONFIG={
    img.addEventListener('load',resolve,{once:true});img.addEventListener('error',()=>{assetFailed=true;resolve();},{once:true});
  })));
  const audio=document.getElementById('aud');
- function startAudio(){if(!audio)return;audio.volume=.55;audio.play().catch(()=>{});}
- // Music belongs to the main invitation, never the welcome/rope intro.
+ const musicFallback=document.getElementById('musicFallback');
+ let audioPrimed=false;
+ function showMusicFallback(){if(musicFallback)musicFallback.style.display='block';}
+ function hideMusicFallback(){if(musicFallback)musicFallback.style.display='none';}
+ // iOS requires playback to be initiated directly by a user gesture.
+ // Start the audio silently on the first welcome tap, then restart/unmute it
+ // only after the main invitation is revealed.
+ function primeAudioFromGesture(){
+   if(!audio)return;
+   audio.volume=.55;audio.muted=true;
+   const attempt=audio.play();
+   if(attempt&&typeof attempt.then==='function')attempt.then(()=>{audioPrimed=true;}).catch(()=>{audioPrimed=false;});
+ }
+ function startAudio(){
+   if(!audio)return;
+   audio.volume=.55;audio.muted=false;
+   try{audio.currentTime=0;}catch(e){}
+   const attempt=audio.play();
+   if(attempt&&typeof attempt.then==='function')attempt.then(()=>{audioPrimed=true;hideMusicFallback();}).catch(()=>{showMusicFallback();});
+   else hideMusicFallback();
+ }
+ musicFallback?.addEventListener('click',()=>{
+   if(!audio)return;
+   audio.muted=false;audio.volume=.55;
+   const attempt=audio.play();
+   if(attempt&&typeof attempt.then==='function')attempt.then(()=>hideMusicFallback()).catch(()=>showMusicFallback());
+ });
+ // Music becomes audible only when the main invitation opens.
  window.addEventListener('wedding:intro-complete',startAudio,{once:true});
  // Returning visitors enter the main invitation directly, so music may start here.
  if(sessionStorage.getItem(INTRO_CONFIG.sessionKey)==='1'){
@@ -952,7 +982,7 @@ const INTRO_CONFIG={
    if(gs){gs.to('.stage-ganesha',{autoAlpha:1,duration:.6});gs.fromTo('#envelopeWrap',{y:-24,rotation:-3},{y:0,rotation:0,duration:1.1,ease:'elastic.out(1,.6)',delay:.2});gs.fromTo('.character',{y:18,autoAlpha:0},{y:0,autoAlpha:1,duration:.8,stagger:.12,ease:'back.out(1.3)',delay:.25});}
    else { $('introBlessing').style.display='none'; }
  }
- $('beginIntro').addEventListener('click',begin);
+ $('beginIntro').addEventListener('click',()=>{primeAudioFromGesture();begin();});
  // Rope can be dragged with pointer events or tapped/clicked to trigger the full sequence.
  const rope=$('pullRope'), board=$('envelopeWrap');
  function setPull(v){pull=Math.max(0,Math.min(INTRO_CONFIG.ropeMax,v));if(gs){gs.set(rope,{y:pull});gs.set(board,{y:-pull*.52,rotation:pull*.018});gs.set('#introBride',{rotation:-pull*.045,x:-pull*.08});gs.set('#introGroom',{rotation:pull*.045,x:pull*.08});}else{rope.style.transform=`translate(-50%,${pull}px)`;board.style.transform=`translate(-50%,${-pull*.52}px) rotate(${pull*.018}deg)`}}
